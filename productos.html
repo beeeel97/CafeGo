@@ -56,12 +56,19 @@
 </head>
 
 <body>
+    <!-- 
+************************************************
+    MENU 
+************************************************
+-->
     <nav class="navbar navbar-expand-sm bg-orange navbar-dark d-flex justify-content-between">
-        <div class="ps-3">
+          <!--LOGO-->
+          <div class="ps-3">
             <img src="images/CafeGoLogo.png" alt="" width="50" height="" />
             <img src="images/CafeGoNombre.png" alt="" width="150" height="" />
         </div>
 
+          <!--MENU-->
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="./home.html" class="nav-link active">Home</a>
@@ -97,113 +104,145 @@
                 <a href="menus.html" class="nav-link active">Menús</a>
             </li>
         </ul>
+        
+        <!--CARRITO Y PERFIL-->
         <div class="nav-end d-flex justify-content-center align-items-center">
             <div>
-                <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="images/carrito.png" alt="" width="60" height="" /></a>
+                <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="images/carrito.png" alt="" width="60" height="" /></a>
             </div>
             <div>
-                <a href="perfil.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="images/Perfil.png" alt="" width="60" height="" /></a>
+                <a href="perfil.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="images/Perfil.png" alt="" width="60" height="" /></a>
             </div>
         </div>
     </nav>
 
 
+    <!-- 
+************************************************
+    FILTROS 
+************************************************
 
+Funcion creada que ordenen los productos según lo seleccionado, cuando clique en "Filtrar"-->
 
-    <main>
-        <form class="my-4">
-            <div class="form-group my-4">
-              <label for="opciones">Selecciona opciones:</label>
-              <br>
-              <div class="form-check form-check-inline">
+    <form class="my-4">
+        <div class="form-group my-4">
+            <label for="opciones">Selecciona opciones:</label>
+            <br>
+            <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" id="opcion1" name="opciones" value="opcion1">
                 <label class="form-check-label" for="opcion1">Bebidas</label>
-              </div>
-              <div class="form-check form-check-inline">
+            </div>
+            <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" id="opcion2" name="opciones" value="opcion2">
                 <label class="form-check-label" for="opcion2">Bocadillos</label>
-              </div>
-              <div class="form-check form-check-inline">
+            </div>
+            <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" id="opcion3" name="opciones" value="opcion3">
                 <label class="form-check-label" for="opcion3">Bolleria</label>
-              </div>
-              <div class="form-check form-check-inline">
+            </div>
+            <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" id="opcion4" name="opciones" value="opcion4">
                 <label class="form-check-label" for="opcion3">Snack</label>
-              </div>
-              <div class="form-check form-check-inline">
+            </div>
+            <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" id="opcion5" name="opciones" value="opcion5">
                 <label class="form-check-label" for="opcion3">Menus</label>
-              </div>
             </div>
-            <div class="form-group">
-              <label for="orden-selector">Ordenar por:</label>
-              <select class="form-control" id="orden-selector">
+        </div>
+        <div class="form-group">
+            <label for="orden-selector">Ordenar por:</label>
+            <select class="form-control" id="orden-selector">
                 <option value="alfabetico">A-Z</option>
                 <option value="alfabeticoinverso">Z-A</option>
                 <option value="preciomas">Precio mayor a menor</option>
                 <option value="preciomenos">Precio menor a mayor</option>
-              </select>
-            </div>
-            <button type="submit" class="btn bg-orange mt-3 mr-4">Filtrar</button>
-          </form>
-          
+            </select>
+        </div>
+        <button type="submit" class="btn bg-orange mt-3 mr-4">Filtrar</button>
+    </form>
 
-          <h1 class="text-center border-top border-bottom py-3">Productos</h1>
+    <!-- 
+************************************************
+    TITULO  
+************************************************
 
-
-        <div class="card-deck d-flex justify-content-center mt-3">
-            <div class="card mx-3 card-size">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/cocacola.png">
-                <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Coca Cola 355 ml
-                    </h4>
-                    <p class="card-text h6">1,00€</p>
-                    <button class="btn bg-orange">Añadir</button>
-                </div>
-            </div>
-            <div class="card mx-3 card-size">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
-                <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Naranja 355
-                        ml
-                    </h4>
-                    <p class="card-text h6">1,00€</p>
-                    <button class="btn bg-orange">Añadir</button>
-                </div>
-            </div>
-            <div class="card mx-3 card-size">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaLimon.jpg">
-                <div class="card-body text-center" style="height: 150px;">
-                    <p class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Limón 355 ml
-                    </p>
-                    <p class="card-text h6">1,00€</p>
-                    <button class="btn bg-orange">Añadir</button>
-                </div>
-            </div>
-            <div class="card mx-3 card-size">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/aquarius.jpg">
-                <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Aquarius 355 ml
-                    </h4>
-                    <p class="card-text h6">1,20€</p>
-                    <button class="btn bg-orange">Añadir</button>
-                </div>
-            </div>
-            <div class="card mx-3 card-size">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/redbull.jpg">
-                <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">RedBull 355 ml
-                    </h4>
-                    <p class="card-text h6">1,75€</p>
-                    <button class="btn bg-orange">Añadir</button>
-                </div>
-            </div>
+Traeriamos de la bbdd el nombre-->
 
 
+    <h1 class="text-center border-top border-bottom py-3">Productos</h1>
+
+
+    <!-- 
+************************************************
+    CARDS PRODUCTOS 
+************************************************
+
+    Traeriamos de la bbdd:
+    - Imagen
+    - Nombre
+    - Precio-->
+
+    <div class="card-deck d-flex justify-content-center mt-3">
+        <div class="card mx-3 card-size">
+            <img class="card-img-top mx-auto" id="producto" src="./images/productos/cocacola.png">
+            <div class="card-body text-center" style="height: 150px;">
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Coca Cola 355 ml
+                </h4>
+                <p class="card-text h6">1,00€</p>
+                <button class="btn bg-orange">Añadir</button>
+            </div>
+        </div>
+        <div class="card mx-3 card-size">
+            <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
+            <div class="card-body text-center" style="height: 150px;">
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Naranja 355
+                    ml
+                </h4>
+                <p class="card-text h6">1,00€</p>
+                <button class="btn bg-orange">Añadir</button>
+            </div>
+        </div>
+        <div class="card mx-3 card-size">
+            <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaLimon.jpg">
+            <div class="card-body text-center" style="height: 150px;">
+                <p class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Limón 355 ml
+                </p>
+                <p class="card-text h6">1,00€</p>
+                <button class="btn bg-orange">Añadir</button>
+            </div>
+        </div>
+        <div class="card mx-3 card-size">
+            <img class="card-img-top mx-auto" id="producto" src="./images/productos/aquarius.jpg">
+            <div class="card-body text-center" style="height: 150px;">
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Aquarius 355 ml
+                </h4>
+                <p class="card-text h6">1,20€</p>
+                <button class="btn bg-orange">Añadir</button>
+            </div>
+        </div>
+        <div class="card mx-3 card-size">
+            <img class="card-img-top mx-auto" id="producto" src="./images/productos/redbull.jpg">
+            <div class="card-body text-center" style="height: 150px;">
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">RedBull 355 ml
+                </h4>
+                <p class="card-text h6">1,75€</p>
+                <button class="btn bg-orange">Añadir</button>
+            </div>
         </div>
 
-    </main>
+        <!-- 
+************************************************
+    BOTON VER MÁS PRODUCTOS 
+************************************************
+
+Al clicarlo, veriamos más productos -->
+
+
+        <div class="text-center mt-5">
+            <button class="btn bg-orange">Ver más productos</button>
+        </div>
 </body>
 
 </html>
