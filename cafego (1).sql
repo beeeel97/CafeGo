@@ -70,7 +70,7 @@ CREATE TABLE `pedidos` (
 CREATE TABLE `productos` (
   `IDProducto` int(11) NOT NULL,
   `NombreProducto` varchar(50) NOT NULL,
-  `Categoría` varchar(30) NOT NULL,
+  `Categoria` varchar(30) NOT NULL,
   `Frio` tinyint(1) NOT NULL,
   `UnidadProducto` int(5) NOT NULL,
   `PrecioProducto` double NOT NULL,
