@@ -82,36 +82,18 @@
 
 Traemos las categorias desde la BBDD -->
 
+<form action="" #Categoria="ngForm">
 
     <div class="row">
-        <div class="row">
-            <div class="circulo">
-                <a href="ofertas.html">Ofertas</a>
-            </div>
-            <div class="circulo">
-                <a href="bebidasRefrecos.html">Refrescos</a>
-            </div>
-            <div class="circulo">
-                <a href="bebidasCafes.html">Cafés</a>
-            </div>
-            <div class="circulo">
-                <a href="bebidasOtros.html">Más bebidas</a>
-            </div>
+    
 
-        </div>
-        <div class="row">
-            <div class="circulo">
-                <a href="bocadillos.html">Bocadillos</a>
-            </div>
-            <div class="circulo">
-                <a href="bolleria.html">Bolleria</a>
-            </div>
-            <div class="circulo">
-                <a href="snack.html">Snack</a>
-            </div>
-            <div class="circulo">
-                <a href="menus.html">Menús</a>
-            </div>
-        </div>
+            <input type="hidden" name="ofertas" [(ngModel)]="categoria">
+            <input class="circulo" type="submit" value="Ofertas" (click)="productos(Categoria)"  />
+
     </div>
+
+
+
+</form>
+    
     </main>

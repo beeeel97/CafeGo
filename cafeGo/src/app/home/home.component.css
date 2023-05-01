@@ -29,7 +29,8 @@ body,
 }
 
 .row {
-    justify-content: space-evenly
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .circulo {
@@ -42,6 +43,8 @@ body,
     align-items: center;
     margin-top: 50px;
     transition: all 0.3s ease-out;
+    margin-left: 75px;
+    margin-right: 75px;
 }
 
 .circulo:hover {
