@@ -25,6 +25,7 @@ header("Content-Type: application/json");
     $datos[]="no";
   }
 
+  //print_r( $datos);
   
   $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
 
