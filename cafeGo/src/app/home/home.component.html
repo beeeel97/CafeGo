@@ -86,16 +86,16 @@ Traemos las categorias desde la BBDD -->
 
     <div class="row"  >
 
-      <input type="hidden" name="ofertas" value="" >   <!-- AQUI HABIA UN NGMODEL. NO GUARDA LA CATEGORIA  -->
-        <input class="circulo" type="submit" value="TodosProductos" (click)="productos(Categoria)"  />
+      <!-- <input  id= "inputHiddenaCategoria" type="hidden" name="ofertas" value="TodosProductos" >   -->
+        <input id= "inputHiddenCategoria" class="circulo" type="submit" value="TodosProductos" (click)="productos(Categoria)"  />
 
 </div>
 
     <div class="row"  *ngFor="let categoria of categorias; let i = index">
     
-
-            <input type="hidden" value = {{categoria}} name="ofertas" >
-            <input class="circulo" type="submit" value={{categoria}} (click)="productos(Categoria)"  />
+      
+    <!-- <input id= "inputHiddenaCategoria" type="hidden" value={{categoria}} name="ofertas" >  -->
+            <input id= "inputHiddenCategoria" class="circulo" type="submit" value={{categoria}} (click)="productos(Categoria)"  />
 
     </div>
 

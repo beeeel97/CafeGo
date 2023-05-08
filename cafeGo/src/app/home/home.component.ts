@@ -20,9 +20,8 @@ export class HomeComponent {
     IDUsuario:""
   };
 
-  categoria:String = "";
+  categoria:String = ""; //guarda el valor del inputHidden 
 
-  //esta variable la tenemos que recuperar del opbjeto usuario al logearnos
   categorias:any=[];
 
   obtenerCategorias(){
@@ -35,14 +34,19 @@ export class HomeComponent {
 
   }
 
-
-  
-    //objeto con los atributos que son los campos del formulario
-   categoriaForm={
-      categoria:"",
+  //Recuperar el valor oculto del input (categoria)
+  obtenerValorInputOculto() {
+    console.log("categoria?")
+   
+        const inputOculto = document.getElementById('inputHiddenCategoria') as HTMLInputElement;
+        this.categoria = inputOculto.value;
+        console.log(this.categoria)
       }
 
   productos(form:NgForm){
+    console.log("sdfs")
+
+    this.obtenerValorInputOculto();
 
     this.navegarProductos();
 
@@ -50,8 +54,10 @@ export class HomeComponent {
 
   navegarProductos(){
     let navigationExtras = {
-      queryParams: { categoria: this.categoriaForm.categoria, usuario: this.IDUsuario.IDUsuario }
+      queryParams: { categoria: this.categoria, usuario: this.IDUsuario.IDUsuario }
     };
+
+    console.log("entra")
 
    console.log(navigationExtras);
   
