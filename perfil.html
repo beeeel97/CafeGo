@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CafeGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: black;
+            padding-top: 2px;
+        }
+
+        #texto {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: white;
+            padding-top: 2px;
+        }
+
+        .navbar {
+            align-items: center;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        .dropdown-menu,
+        .dropdown {
+            background-color: #F6951B;
+        }
+
+        .bg-orange {
+            background-color: #F6951B;
+        }
+
+        #dropdownMenuButton2 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+************************************************
+    MENU 
+************************************************
+-->
+    <nav class="navbar navbar-expand-sm bg-orange navbar-dark d-flex justify-content-between">
+        <!--LOGO-->
+        <div class="ps-3">
+            <img src="./cafeGo/src/app/images/CafeGoLogo.png" alt="" width="50" height="" />
+            <img src="./cafeGo/src/app/images/CafeGoNombre.png" alt="" width="150" height="" />
+        </div>
+
+        <!--MENU-->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="./home.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="productos.html" class="nav-link active">Todos los productos</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="bocadillos.html" class="nav-link active">Bocadillos</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <p id="texto">Bebidas</p>
+                    </button>
+                    <ul class="dropdown-menu active" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="bebidasCafes.html" id="texto">Cafe</a></li>
+                        <li><a class="dropdown-item" href="bebidasRefrecos.html" id="texto">Refrescos</a></li>
+                        <li><a class="dropdown-item" href="bebidasOtros.html" id="texto">Más bebidas</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="bolleria.html" class="nav-link active">Bolleria</a>
+            </li>
+            <li class="nav-item">
+                <a href="snack.html" class="nav-link active">Snack</a>
+            </li>
+            <li class="nav-item">
+                <a href="menus.html" class="nav-link active">Menús</a>
+            </li>
+        </ul>
+
+        <!--CARRITO Y PERFIL-->
+        <div class="nav-end d-flex justify-content-center align-items-center">
+            <div>
+                <a href="./cafeGo/src/app/images/carrito.html"><img
+                        class="nav-link btn btn-outline-light btn-floating m-1" src="images/carrito.png" alt=""
+                        width="70" height="" /></a>
+            </div>
+            <div>
+                <a href="./cafeGo/src/app/images/perfil.html"><img
+                        class="nav-link btn btn-outline-light btn-floating m-1" src="images/Perfil.png" alt=""
+                        width="60" height="" /></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+************************************************
+    PERFIL USUARIO
+************************************************
+
+Traemos los datos desde la BBDD -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4" style="margin-top: 50px;">
+                    <div class="text-center">
+                        <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
+                            alt="avatar">
+                        <h6>Sube una foto</h6>
+                        <input type="file" class="text-center center-block file-upload">
+                    </div>
+                    <br>
+                </div>
+
+                <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
+                <div class="col-sm-8" style="margin-top: 50px;">
+                    <div class="tab-pane active" id="home">
+                        <form class="form" action="##" method="post" id="perfil">
+                            <div class="form-group mt-3">
+                                <!-- DIV NOMBRE -->
+                                <div class="col-xs-6">
+                                    <label for="nombre">
+                                        <h5>Nombre</h5>
+                                    </label>
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Alejandro">
+                                </div>
+                            </div>
+
+                            <!-- DIV APELLIDOS -->
+                            <div class="form-group mt-3">
+                                <div class="col-xs-6">
+                                    <label for="last_name">
+                                        <h5>Apellidos</h5>
+                                    </label>
+                                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Barba">
+                                </div>
+                            </div>
+
+                            <!-- DIV EMAIL -->
+                            <div class="form-group mt-3">
+                                <div class="col-xs-6">
+                                    <label for="email">
+                                        <h5>Email</h5>
+                                    </label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="alejandro@educamadrid.com">
+                                </div>
+                            </div>
+
+
+                            <!-- DIV CONTRASEÑAS -->
+                            <div class="form-group mt-3">
+                                <div class="col-xs-6">
+                                    <label for="password">
+                                        <h5>Contraseña</h5>
+                                    </label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <div class="col-xs-6">
+                                    <label for="password2">
+                                        <h5>Verifica la contraseña</h5>
+                                    </label>
+                                    <input type="password" class="form-control" name="password2" id="password2" >
+                                </div>
+                            </div>
+
+
+                            <!-- DIV BOTON GUARDAR LOS NUEVOS DATOS -->
+                            <div class="form-group mt-3">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-success" type="submit"><i
+                                            class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </main>
