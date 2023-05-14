@@ -17,7 +17,7 @@ export class LoginComponent {
     // this.obtenerUsuarios();
    }
 
-   //Objeto usuario para pasarlo como parametros a la base de datps
+   //Objeto usuario para pasarlo como parametros a la base de datps. //PODRIA SUSTIRUIRSE POR EL MODELO
 
    usuario={
     email:null,
@@ -32,7 +32,7 @@ export class LoginComponent {
       password:""
       }
 
-        //Variable para guadar lo que me traigo de la bbdd
+    //Variable para guadar lo que me traigo de la bbdd
 
   usuarios:any=[];
 
@@ -45,9 +45,7 @@ export class LoginComponent {
   
       this.usuario.email = email;
       this.usuario.password=password;
-      
-  
-      console.log(this.usuario);
+
       this.obtenerUsuarios();
        this.navegarHome();
     }

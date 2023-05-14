@@ -1,6 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Usuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,10 @@ export class UsuarioService {
     return this.http.post(`${this.URL}obtenerUsuario.php `, JSON.stringify(usuario) );
   }
 
-  registrarUsuario(usuario: { nombre: null; apellido: null; departamento: null; email: null; password: null; }){
+  registrarUsuario(usuario: Usuario){
 
     console.log("llegaa",usuario);
-    return this.http.post(`${this.URL}registrarUsuario.php `, JSON.stringify(usuario) );
+    return this.http.post<boolean>(`${this.URL}registrarUsuario.php `, JSON.stringify(usuario) );
 
   }
 

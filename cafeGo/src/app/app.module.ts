@@ -18,6 +18,7 @@ const appRoutes:Routes=[
   {path:"", component: LoginComponent},
   {path:"home/:IDUsuario", component:HomeComponent},
   {path:"login", component:LoginComponent},
+  {path:"registro", component:RegistroComponent},
   {path:"productos", component:ProductosComponent},
  
 ]

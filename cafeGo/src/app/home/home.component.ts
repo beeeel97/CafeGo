@@ -31,6 +31,7 @@ export class HomeComponent {
     .obtenerCategoriasProd()
     .subscribe((result) => {
         this.categorias = result;
+        console.log(this.categorias);
     });
 
   }
