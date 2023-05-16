@@ -30,39 +30,33 @@ export class HomeComponent {
     .obtenerCategoriasProd()
     .subscribe((result) => {
         this.categorias = result;
-        console.log(this.categorias);
     });
 
   }
 
   //Recuperar el valor oculto del input (categoria)
-  obtenerValorInputOculto() {
-    console.log("categoria?")
-   
-        const inputOculto = document.getElementById('inputHiddenCategoria') as HTMLInputElement;
-        this.categoria = inputOculto.value;
-        console.log(this.categoria)
+  obtenerValorInputOculto(evento: Event) {
+    let value = (<HTMLInputElement>evento.target).value;
+    this.categoria = value;
       }
 
-  productos(form:NgForm){
-    console.log("sdfs")
 
-    this.obtenerValorInputOculto();
+  productos(evento: Event){
 
+    this.obtenerValorInputOculto(evento);
     this.navegarProductos();
 
   }
 
   navegarProductos(){
-    let navigationExtras = {
+    let navigationExtras: NavigationExtras= {
       queryParams: { categoria: this.categoria, usuario: this.IDUsuario.IDUsuario }
     };
-
-    console.log("entra")
 
    console.log(navigationExtras);
   
     this.router.navigate(['/productos'], navigationExtras);
   }
+
   
 }

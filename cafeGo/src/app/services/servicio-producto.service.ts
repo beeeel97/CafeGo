@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceProducto {
 
+
+
   URL = "http://localhost/cafeGo/PHP/";
 
   constructor(private http: HttpClient) { }
@@ -13,4 +15,14 @@ export class ServiceProducto {
   obtenerCategoriasProd() {
     return this.http.get(`${this.URL}obtenerCategorias.php `);
   }
+
+  
+ obtenerProductoByCategoria(categoria: {
+  categoria: null
+}) {
+ // const body = { categoria: categoria }; 
+ console.log(categoria);
+  return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(categoria));
+   
+ }
 }
