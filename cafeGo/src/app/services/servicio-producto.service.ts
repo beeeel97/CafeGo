@@ -17,12 +17,10 @@ export class ServiceProducto {
   }
 
   
- obtenerProductoByCategoria(categoria: {
-  categoria: null
-}) {
- // const body = { categoria: categoria }; 
- console.log(categoria);
-  return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(categoria));
+ obtenerProductoByCategoria(categoria: string) {
+  const body = { categoria: categoria }; 
+ console.log(categoria)
+  return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(body));
    
  }
 }
