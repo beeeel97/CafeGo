@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistroComponent } from './registro/registro.component';
+import { MenuNavegacionComponent } from './menu-navegacion/menu-navegacion.component';
 
 
 const appRoutes:Routes=[
@@ -30,7 +31,8 @@ const appRoutes:Routes=[
     LoginComponent,
     HomeComponent,
     ProductosComponent,
-    RegistroComponent
+    RegistroComponent,
+    MenuNavegacionComponent
   ],
   imports: [
     BrowserModule,
