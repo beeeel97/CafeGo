@@ -15,38 +15,22 @@
 
 
     <app-menu-navegacion></app-menu-navegacion>
-    <!-- 
-************************************************
-    FILTROS 
-************************************************
+    
+    <!-- <app-buscador [propiedadRecibida]="filterProductos"></app-buscador> -->
 
-Funcion creada que ordenen los productos según lo seleccionado, cuando clique en "Filtrar"-->
+    <!-- BUSCADOR -->
+
+    <div class="search-container">
+        <form class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filterProductos" name="filterProductos">
+            <div class="input-group-append">
+                <button class="btn bg-orange" type="submit">Buscar</button>
+            </div>
+        </form>
+    </div>
 
     <form class="my-4">
-        <div class="form-group my-4">
-            <label for="opciones">Selecciona opciones:</label>
-            <br>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion1" name="opciones" value="opcion1">
-                <label class="form-check-label" for="opcion1">Bebidas</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion2" name="opciones" value="opcion2">
-                <label class="form-check-label" for="opcion2">Bocadillos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion3" name="opciones" value="opcion3">
-                <label class="form-check-label" for="opcion3">Bolleria</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion4" name="opciones" value="opcion4" >
-                <label class="form-check-label" for="opcion3">Snack</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion5" name="opciones" value="opcion5">
-                <label class="form-check-label" for="opcion3">Menus</label>
-            </div>
-        </div>
+        
         <div class="form-group">
             <label for="orden-selector">Ordenar por:</label>
             <select class="form-control" id="orden-selector">
@@ -58,32 +42,11 @@ Funcion creada que ordenen los productos según lo seleccionado, cuando clique e
         </div>
         <button type="submit" class="btn bg-orange mt-3 mr-4">Filtrar</button>
     </form>
-
-    <!-- 
-************************************************
-    TITULO  
-************************************************
-
-Traeriamos de la bbdd el nombre-->
-
-
     <h1 class="text-center border-top border-bottom py-3">Productos</h1>
-
-
-   <!-- 
-************************************************
-    CARDS PRODUCTOS 
-************************************************
-
-    Traeriamos de la bbdd:
-    - Imagen
-    - Nombre
-    - Precio-->
-
 
     <div class="card-deck d-flex justify-content-center mt-3">
    
-        <div class="card mx-3 card-size"  *ngFor="let producto of productos; let i = index">
+        <div class="card mx-3 card-size"  *ngFor="let producto of productos | buscador:filterProductos">
             <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
             <div class="card-body text-center" style="height: 150px;">
                 <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}
@@ -99,15 +62,6 @@ Traeriamos de la bbdd el nombre-->
         <input id= "inputHiddenCategoriaProducto" class="circulo" type="submit" value={{categoria}}  (click)="productos($event)" />
 
 </div> -->
-
-
-    <!-- 
-************************************************
-    BOTON VER MÁS PRODUCTOS 
-************************************************
-
-Al clicarlo, veriamos más productos -->
-
 
     <div class="text-center mt-5">
         <button class="btn bg-orange">Ver más productos</button>

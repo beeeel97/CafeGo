@@ -59,7 +59,7 @@
 
 // }
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceProducto } from '../services/servicio-producto.service';
 import { Producto } from '../models/Producto';
@@ -76,6 +76,14 @@ export class ProductosComponent implements OnInit {
 
    //guardar los productos que me vienen de la base de datos
    productos: Producto[] = [];
+
+   //buscador
+   filterProductos ="";
+
+   //buscador en otro componente
+
+   @Input()
+  propiedadRecibida!: string;
 
   constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto) { }
 
@@ -106,5 +114,19 @@ export class ProductosComponent implements OnInit {
       console.log(this.productos);
     });
   }
+
+  terminoBusqueda: string = '';
+  resultados: Producto[] = [];
+  
+  // buscarProductos() {
+  //   this.resultados = this.productos.filter(producto =>{
+  //       producto.NombreProducto.toLowerCase().includes(this.terminoBusqueda.toLowerCase());
+  //         console.log(this.resultados);
+  //   }
+    
+  //   );
+  // }
+
+
 }
 
