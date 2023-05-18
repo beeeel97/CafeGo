@@ -183,53 +183,23 @@ Traeriamos de la bbdd el nombre-->
 
 
     <div class="card-deck d-flex justify-content-center mt-3">
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/cocacola.png">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Coca Cola 355 ml
-                </h4>
-                <p class="card-text h6">1,00€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
+   
+        <div class="card mx-3 card-size"  *ngFor="let producto of productos; let i = index">
             <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
             <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Naranja 355
-                    ml
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}
                 </h4>
-                <p class="card-text h6">1,00€</p>
+                <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
                 <button class="btn bg-orange">Añadir</button>
             </div>
         </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaLimon.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <p class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Limón 355 ml
-                </p>
-                <p class="card-text h6">1,00€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/aquarius.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Aquarius 355 ml
-                </h4>
-                <p class="card-text h6">1,20€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/redbull.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">RedBull 355 ml
-                </h4>
-                <p class="card-text h6">1,75€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
+       
     </div>
+
+    <!-- <div class="row"  *ngFor="let categoria of categorias; let i = index">
+        <input id= "inputHiddenCategoriaProducto" class="circulo" type="submit" value={{categoria}}  (click)="productos($event)" />
+
+</div> -->
 
 
     <!-- 
