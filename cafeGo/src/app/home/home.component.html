@@ -26,7 +26,7 @@
         </div>
 
         <!--MENU-->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav menunav">
             <li class="nav-item">
                 <a href="./home.html" class="nav-link active">Home</a>
             </li>
@@ -41,7 +41,7 @@
                 <div class="dropdown">
                     <button class="btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <p id="texto">Bebidas</p>
+                        <p class="menudown" id="texto">Bebidas</p>
                     </button>
                     <ul class="dropdown-menu active" aria-labelledby="dropdownMenuButton2">
                         <li><a class="dropdown-item" href="bebidasCafes.html" id="texto">Cafe</a></li>
@@ -65,6 +65,10 @@
         <!--CARRITO Y PERFIL-->
         <div class="nav-end d-flex justify-content-center align-items-center">
             <div>
+                <a href="administrador.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="./assets/images/tuerca.png" alt="" width="45" height="" /></a>
+            </div>
+            <div>
                 <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/carrito.png" alt="" width="60" height="" /></a>
             </div>
             <div>
@@ -85,7 +89,7 @@ Traemos las categorias desde la BBDD -->
     <div class="row"  >
 
       <!-- <input  id= "inputHiddenaCategoria" type="hidden" name="ofertas" value="TodosProductos" >   -->
-        <input id= "inputHiddenCategoria" class="circulo" type="submit" value="TodosProductos" (click)="productos(Categoria)"  />
+        <input id= "inputHiddenCategoria" class="btn circulo" type="submit" value="TodosProductos" (click)="productos(Categoria)"  />
 
 </div>
 
@@ -93,7 +97,7 @@ Traemos las categorias desde la BBDD -->
     
       
     <!-- <input id= "inputHiddenaCategoria" type="hidden" value={{categoria}} name="ofertas" >  -->
-            <input id= "inputHiddenCategoria" class="circulo" type="submit" value={{categoria}} (click)="productos(Categoria)"  />
+            <input id= "inputHiddenCategoria" class="btn circulo" type="submit" value={{categoria}} (click)="productos(Categoria)"  />
 
     </div>
 

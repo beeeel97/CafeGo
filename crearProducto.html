@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CafeGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-dMWAjstcwLxiq1V6FaOGrEq2/ztYIhtS76yVhMH/4EucC4cZ2OlXRsHKkM3bZ0+4HjZ0e3lmT2wmteb0TOX+2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body,
+        #texto {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: white;
+            padding-top: 2px;
+        }
+
+        .container-button {
+            display: flex;
+            margin-top: 10%;
+            height: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navbar {
+            align-items: center;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        .dropdown-menu,
+        .dropdown {
+            background-color: #F6951B;
+        }
+
+        .bg-orange {
+            background-color: #F6951B;
+        }
+
+        #dropdownMenuButton2 {
+            color: white;
+        }
+
+        .row {
+            justify-content: space-evenly
+        }
+
+        .block {
+            width: 150px;
+            height: 150px;
+            border-radius: 15%;
+            background-color: #F6951B;
+            transition: all 0.3s ease-out;
+            margin-left: 15px;
+        }
+
+        .block:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(246, 149, 27, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+************************************************
+    MENU 
+************************************************
+-->
+    <nav class="navbar navbar-expand-sm bg-orange navbar-dark d-flex justify-content-between">
+        <!--LOGO-->
+        <div class="ps-3">
+            <img class="logo" src="./assets/images/CafeGoLogo.png" alt="" width="50" height="" />
+            <img class="logo" src="./assets/images/CafeGoNombre.png" alt="" width="150" height="" />
+        </div>
+
+        <!--MENU-->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="./home.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="productos.html" class="nav-link active">Todos los productos</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="bocadillos.html" class="nav-link active">Bocadillos</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <p id="texto">Bebidas</p>
+                    </button>
+                    <ul class="dropdown-menu active" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="bebidasCafes.html" id="texto">Cafe</a></li>
+                        <li><a class="dropdown-item" href="bebidasRefrecos.html" id="texto">Refrescos</a></li>
+                        <li><a class="dropdown-item" href="bebidasOtros.html" id="texto">Más bebidas</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="bolleria.html" class="nav-link active">Bolleria</a>
+            </li>
+            <li class="nav-item">
+                <a href="snack.html" class="nav-link active">Snack</a>
+            </li>
+            <li class="nav-item">
+                <a href="menus.html" class="nav-link active">Menús</a>
+            </li>
+        </ul>
+
+        <!--CARRITO Y PERFIL-->
+        <div class="nav-end d-flex justify-content-center align-items-center">
+            <div>
+                <a href="administrador.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="cafeGo\src\assets\images\tuerca.png" alt="" width="70" height="" /></a>
+            </div>
+            <div>
+                <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="images/carrito.png" alt="" width="70" height="" /></a>
+            </div>
+            <div>
+                <a href="perfil.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
+                        src="images/Perfil.png" alt="" width="60" height="" /></a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container table-responsive">
+        <div class="container p-5 my-3 text-white text-center">
+            <a href="crearProducto.html"><button class="btn" style="background-color: #F6951B">Crear
+                    producto</button></a>
+            <a href="productosAdministrador.html"><button class="btn" style="background-color: #F6951B">Ver
+                producto</button></a>
+            <a href="administrador.html"><button class="btn" style="background-color: #F6951B">Volver</button></a>
+        </div>
+
+        <div>
+            <!-- 
+************************************************
+FORMULARIO DE REGRISTRO DE USUARIO 
+************************************************
+-->
+
+            <form class="was-validated form bg-white" action="">
+
+                <!--NOMBRE PRODUCTO-->
+                <div>
+                    <label for="nombre" class="form-label text-dark">Nombre del producto</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Introduzca producto" required
+                        pattern="[a-zA-Z]{5,20}" />
+                </div>
+                <div class="d-flex p-2 flex-nowrap justify-content-between">
+                    <!--DIV - CATEGORIA-->
+                    <div class="p-1 text-dark">Categoria:</div>
+                    <div>
+                        <select class="form-select" name="categoria" id="categoria" style="width: 500px">
+                            <option value=""></option>
+                            <option value="snack">Snack</option>
+                            <option value="bocadillo"> bocadillo</option>
+                            <option value="bedida"> Bedida</option>
+                        </select>
+                    </div>
+
+                    <!--DIV - FRIO-->
+                    <div class="p-1 text-dark">Frio:</div>
+                    <div>
+                        <select class="form-select" name="frio" id="frio" style="width: 500px">
+                            <option value=""></option>
+                            <option value="si">Si</option>
+                            <option value="no"> No</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!--UNIDADES PRODUCTO-->
+                <div>
+                    <label for="number" class="form-label text-dark">Unidades de producto</label>
+                    <input type="number" class="form-control" id="unidades" />
+                </div>
+
+                <!--PRECIO PRODUCTO-->
+                <div>
+                    <label for="nombre" class="form-label text-dark">Precio del producto</label>
+                    <input type=number step=0.01 class="form-control" id="precio" />
+                </div>
+
+                <!--DESCRIPCION PRODUCTO-->
+                <div>
+                    <label for="descripcion" class="form-label text-dark">Descripción del producto:</label>
+                    <textarea name="descripcion" id="descripcion" class="form-control" rows="8" cols="50"></textarea>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <input type="submit" value="Enviar" class="btn" style="background-color: #F6951B"
+                        (click)="recogerDatos(Formulario)" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
