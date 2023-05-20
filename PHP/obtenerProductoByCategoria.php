@@ -10,10 +10,18 @@ header("Content-Type: application/json");
   require("conexion.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
   $conexion = conexion(); // CREA LA CONEXION
+  $params = json_decode(file_get_contents('php://input'));
 
- 
+ //$params = $_REQUEST;
+
+
+
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "SELECT NombreCategoria FROM categorias");
+
+  $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
+
+//$registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = 'Bebida fria')");
+
   
   $numRegistros=mysqli_num_rows($registros);
 
@@ -22,7 +30,7 @@ header("Content-Type: application/json");
 for ($i=0; $i <  $numRegistros; $i++) { 
 
     $row = mysqli_fetch_array($registros);
-    $datos[] = $row['NombreCategoria'];
+    $datos[] = $row;
  
 }
 

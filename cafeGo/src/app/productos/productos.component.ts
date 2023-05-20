@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ServiceProducto } from '../services/servicio-producto.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,13 +9,28 @@ import { Component } from '@angular/core';
 })
 export class ProductosComponent {
 
-  //constructor con un servicio de obtener productos (con un where) y snapsop, que recoga la categoria que hemos pasado en home por query params
 
-  //tambien tenemos el codusuario para el carrrito,. FUTURO
+  constructor(private router:Router, private route:ActivatedRoute, private ServiceProducto: ServiceProducto) {
+    this.IDUsuario = this.route.snapshot.queryParams['usuario'];
+  this.categoria.categoria = this.route.snapshot.queryParams['categoria'];
+  console.log("categoria en productos", this.categoria.categoria);
+  this.obtenerProductoByCategoria();
+    
+   }
+ 
 
-  // Este componente mujestra todos los producots, solo bebidas, solo snacks... etc segun categoria seleccionada.
+   IDUsuario: number;
+   categoria:any={
+    categoria:""
+   }
 
-  //Hay que hacer filtro precio.
+   obtenerProductoByCategoria() {
+    console.log("categoria en productos", this.categoria);
+    this.ServiceProducto.obtenerProductoByCategoria(this.categoria).subscribe();
+  }
+
+
+
 
   
 
