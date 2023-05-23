@@ -77,6 +77,9 @@ export class ProductosComponent implements OnInit {
    //guardar los productos que me vienen de la base de datos
    productos: Producto[] = [];
 
+  //fitro los productos que me vienen de la base de datos
+   productosFiltrados: Producto[] = [];
+
    //buscador
    filterProductos ="";
 
@@ -111,6 +114,8 @@ export class ProductosComponent implements OnInit {
         Number(objeto.PrecioProducto),
         objeto.DescripcionProducto
       ));
+
+      this.productosFiltrados = this.productos;
       console.log(this.productos);
     });
   }

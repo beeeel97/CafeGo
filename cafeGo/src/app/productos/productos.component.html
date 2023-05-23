@@ -46,7 +46,7 @@
 
     <div class="card-deck d-flex justify-content-center mt-3">
    
-        <div class="card mx-3 card-size"  *ngFor="let producto of productos | buscador:filterProductos">
+        <div class="card mx-3 card-size"  *ngFor="let producto of productosFiltrados | buscador:filterProductos">
             <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
             <div class="card-body text-center" style="height: 150px;">
                 <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}

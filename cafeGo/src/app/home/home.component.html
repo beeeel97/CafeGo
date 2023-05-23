@@ -10,22 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script> -->
    
 </head>
-
 <body>
-    <!-- 
-************************************************
-    MENU 
-************************************************
--->
 <main>
     <app-menu-navegacion></app-menu-navegacion>
-
-    <!-- 
-************************************************
-    CATEGORIAS DE LOS PRODUCTOS 
-************************************************
-
-Traemos las categorias desde la BBDD -->
 
 <form action="" #Categoria="ngForm">
 
@@ -38,8 +25,6 @@ Traemos las categorias desde la BBDD -->
             <input id= "inputHiddenCategoriaProducto" class="circulo" type="submit" value={{categoria}}  (click)="productos($event)" />
 
     </div>
-
-
 
 </form>
     
