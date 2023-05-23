@@ -6,154 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CafeGo</title>
-    <style>
-        #texto {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            color: white;
-            padding-top: 2px;
-
-        }
-
-        .navbar {
-            align-items: center;
-        }
-        .menunav{
-            align-items: center;
-        }
-        .menudown{
-            margin-top:15px;
-
-        }
-        .navbar-nav {
-            margin: 0;
-        }
-
-        .dropdown-menu,
-        .dropdown {
-            background-color: #F6951B;
-        }
-
-        .bg-orange {
-            background-color: #F6951B;
-        }
-
-        #dropdownMenuButton2 {
-            color: white;
-        }
-
-        .row {
-            justify-content: space-evenly
-        }
-
-        .card-size {
-            width: 250px;
-            height: 250px;
-        }
-
-        #producto {
-            height: 150px;
-            width: 120px;
-        }
-    </style>
-
 </head>
 
 <body>
-    <!-- 
-************************************************
-    MENU 
-************************************************
--->
-<main>
-    <nav class="navbar navbar-expand-sm bg-orange navbar-dark d-flex justify-content-between">
-          <!--LOGO-->
-          <div class="ps-3">
-            <img class="logo" src="./assets/images/CafeGoLogo.png" alt="" width="50" height="" />
-            <img class="logo" src="./assets/images/CafeGoNombre.png" alt="" width="120" height="" />
-        </div>
+    <app-menu-navegacion></app-menu-navegacion>
+    
+    <!-- <app-buscador [propiedadRecibida]="filterProductos"></app-buscador> -->
 
-          <!--MENU-->
-        <ul class="navbar-nav menunav">
-            <li class="nav-item">
-                <a href="./home.html" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="productos.html" class="nav-link active">Todos los productos</a>
-            </li>
+    <!-- BUSCADOR -->
 
-            <li class="nav-item">
-                <a href="bocadillos.html" class="nav-link active">Bocadillos</a>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <p class="menudown" id="texto">Bebidas</p>
-                    </button>
-                    <ul class="menudown dropdown-menu active" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="bebidasCafes.html" id="texto">Cafe</a></li>
-                        <li><a class="dropdown-item" href="bebidasRefrecos.html" id="texto">Refrescos</a></li>
-                        <li><a class="dropdown-item" href="bebidasOtros.html" id="texto">Más bebidas</a></li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a href="bolleria.html" class="nav-link active">Bolleria</a>
-            </li>
-            <li class="nav-item">
-                <a href="snack.html" class="nav-link active">Snack</a>
-            </li>
-            <li class="nav-item">
-                <a href="menus.html" class="nav-link active">Menús</a>
-            </li>
-        </ul>
-        
-        <!--CARRITO Y PERFIL-->
-        <div class="nav-end d-flex justify-content-center align-items-center">
-            <div>
-                <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/carrito.png" alt="" width="60" height="" /></a>
+    <div class="search-container">
+        <form class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filterProductos" name="filterProductos">
+            <div class="input-group-append">
+                <button class="btn bg-orange" type="submit">Buscar</button>
             </div>
-            <div>
-                <a href="perfil.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/Perfil.png" alt="" width="55" height="45" /></a>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- 
-************************************************
-    FILTROS 
-************************************************
-
-Funcion creada que ordenen los productos según lo seleccionado, cuando clique en "Filtrar"-->
+        </form>
+    </div>
 
     <form class="my-4">
-        <div class="form-group my-4">
-            <label for="opciones">Selecciona opciones:</label>
-            <br>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion1" name="opciones" value="opcion1">
-                <label class="form-check-label" for="opcion1">Bebidas</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion2" name="opciones" value="opcion2">
-                <label class="form-check-label" for="opcion2">Bocadillos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion3" name="opciones" value="opcion3">
-                <label class="form-check-label" for="opcion3">Bolleria</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion4" name="opciones" value="opcion4">
-                <label class="form-check-label" for="opcion3">Snack</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="opcion5" name="opciones" value="opcion5">
-                <label class="form-check-label" for="opcion3">Menus</label>
-            </div>
-        </div>
+        
         <div class="form-group">
             <label for="orden-selector">Ordenar por:</label>
             <select class="form-control" id="orden-selector">
@@ -165,86 +37,26 @@ Funcion creada que ordenen los productos según lo seleccionado, cuando clique e
         </div>
         <button type="submit" class="btn bg-orange mt-3 mr-4">Filtrar</button>
     </form>
-
-    <!-- 
-************************************************
-    TITULO  
-************************************************
-
-Traeriamos de la bbdd el nombre-->
-
-
     <h1 class="text-center border-top border-bottom py-3">Productos</h1>
 
-
-   <!-- 
-************************************************
-    CARDS PRODUCTOS 
-************************************************
-
-    Traeriamos de la bbdd:
-    - Imagen
-    - Nombre
-    - Precio-->
-
-
     <div class="card-deck d-flex justify-content-center mt-3">
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/cocacola.png">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Coca Cola 355 ml
-                </h4>
-                <p class="card-text h6">1,00€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
+   
+        <div class="card mx-3 card-size"  *ngFor="let producto of productosFiltrados | buscador:filterProductos">
             <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
             <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Naranja 355
-                    ml
+                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}
                 </h4>
-                <p class="card-text h6">1,00€</p>
+                <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
                 <button class="btn bg-orange">Añadir</button>
             </div>
         </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaLimon.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <p class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Fanta Limón 355 ml
-                </p>
-                <p class="card-text h6">1,00€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/aquarius.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">Aquarius 355 ml
-                </h4>
-                <p class="card-text h6">1,20€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
-        <div class="card mx-3 card-size">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/redbull.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">RedBull 355 ml
-                </h4>
-                <p class="card-text h6">1,75€</p>
-                <button class="btn bg-orange">Añadir</button>
-            </div>
-        </div>
+       
     </div>
 
+    <!-- <div class="row"  *ngFor="let categoria of categorias; let i = index">
+        <input id= "inputHiddenCategoriaProducto" class="circulo" type="submit" value={{categoria}}  (click)="productos($event)" />
 
-    <!-- 
-************************************************
-    BOTON VER MÁS PRODUCTOS 
-************************************************
-
-Al clicarlo, veriamos más productos -->
-
+</div> -->
 
     <div class="text-center mt-5">
         <button class="btn bg-orange">Ver más productos</button>

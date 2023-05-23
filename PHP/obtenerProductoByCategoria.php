@@ -12,13 +12,16 @@ header("Content-Type: application/json");
   $conexion = conexion(); // CREA LA CONEXION
   $params = json_decode(file_get_contents('php://input'));
 
- //$params = $_REQUEST;
-
-
 
   // REALIZA LA QUERY A LA DB
 
-  $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
+  if($params->categoria=="TodosProductos"){
+    $registros = mysqli_query($conexion, "SELECT * FROM productos");
+  }else{
+      $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
+  }
+
+
 
 //$registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = 'Bebida fria')");
 
