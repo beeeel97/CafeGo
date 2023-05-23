@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-
 header("Content-Type: application/json");
 
 
+
   
   require("conexion.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
@@ -20,6 +21,16 @@ header("Content-Type: application/json");
   }else{
       $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
   }
+
+  // if($params->categoria=="TodosProductos"){
+  //   // $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
+
+  //   $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = 'Snack')");
+  // }else{
+
+  //   $registros = mysqli_query($conexion, "SELECT * FROM productos")
+     
+  // }
 
 
 

@@ -33,39 +33,38 @@
         
         <div class="form-group">
             <label for="orden-selector">Ordenar por:</label>
-            <select class="form-control" id="orden-selector">
-                <option value="alfabetico">A-Z</option>
-                <option value="alfabeticoinverso">Z-A</option>
-                <option value="preciomas">Precio mayor a menor</option>
-                <option value="preciomenos">Precio menor a mayor</option>
+            <select name ="filtro" [(ngModel)]="filtrosSeleccionado" class="form-control" id="orden-selector" >
+                <option [value]="'alfabetico'">A-Z</option>
+                <option [value]="'alfabeticoinverso'">Z-A</option>
+                <option [value]="'preciomas'">Precio mayor a menor</option>
+                <option [value]="'preciomenos'">Precio menor a mayor</option>
             </select>
         </div>
-        <button type="submit" class="btn bg-orange mt-3 mr-4">Filtrar</button>
+        <button type="submit" class="btn bg-orange mt-3 mr-4" (click)="filtroProductos()" >Filtrar</button>
     </form>
     <h1 class="text-center border-top border-bottom py-3">Productos</h1>
 
-    <div class="card-deck d-flex justify-content-center mt-3">
-   
-        <div class="card mx-3 card-size"  *ngFor="let producto of productosFiltrados | buscador:filterProductos">
-            <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
-            <div class="card-body text-center" style="height: 150px;">
-                <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}
-                </h4>
-                <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
-                <button class="btn bg-orange">Añadir</button>
+    <!-- <div class="card-deck d-flex justify-content-center mt-3 flex-wrap"> -->
+        <div class="card-deck flex-productos">
+            <div class="card mx-3 card-size" *ngFor="let producto of productosFiltrados | buscador:filterProductos">
+                <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
+                <div class="card-body text-center" style="height: 150px;">
+                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}</h4>
+                    <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
+                    <button class="btn bg-orange">Añadir</button>
+                </div>
             </div>
         </div>
-       
-    </div>
+        
 
     <!-- <div class="row"  *ngFor="let categoria of categorias; let i = index">
         <input id= "inputHiddenCategoriaProducto" class="circulo" type="submit" value={{categoria}}  (click)="productos($event)" />
 
 </div> -->
 
-    <div class="text-center mt-5">
+    <!-- <div class="text-center mt-5">
         <button class="btn bg-orange">Ver más productos</button>
-    </div>
+    </div> -->
     </main>
 </body>
 

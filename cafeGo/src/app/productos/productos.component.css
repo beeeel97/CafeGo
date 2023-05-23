@@ -34,6 +34,7 @@
 .card-size {
     width: 250px;
     height: 250px;
+    margin-top: 20px;
 }
 
 #producto {
@@ -45,3 +46,10 @@
     max-width: 500px;
     margin: 20px auto;
 }
+.flex-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+

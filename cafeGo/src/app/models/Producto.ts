@@ -1,5 +1,6 @@
 export class Producto{
 
+
     IDProducto: number;
     NombreProducto: string;
     Categoria: number;
@@ -7,6 +8,7 @@ export class Producto{
     UnidadProducto:number;
     PrecioProducto:number;
     DescripcionProducto:string;
+   // urlImagen:string;
 
 
     constructor(
@@ -16,7 +18,8 @@ export class Producto{
         Frio: number,
         UnidadProducto: number,
         PrecioProducto: number,
-        DescripcionProducto: string
+        DescripcionProducto: string,
+    //    urlImagen:string
       ) {
         this.IDProducto = IDProducto;
         this.NombreProducto = NombreProducto;
@@ -25,6 +28,7 @@ export class Producto{
         this.UnidadProducto = UnidadProducto;
         this.PrecioProducto = PrecioProducto;
         this.DescripcionProducto = DescripcionProducto;
+     //  this.urlImagen = urlImagen;
       }
     
 

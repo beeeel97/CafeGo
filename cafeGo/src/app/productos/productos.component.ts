@@ -83,6 +83,9 @@ export class ProductosComponent implements OnInit {
    //buscador
    filterProductos ="";
 
+   //Filtro del select
+   filtrosSeleccionado="";
+
    //buscador en otro componente
 
    @Input()
@@ -102,9 +105,14 @@ export class ProductosComponent implements OnInit {
 
   obtenerProductoByCategoria() {
     console.log("categoria en productos", this.categoria);
+
     this.serviceProducto.obtenerProductoByCategoria(this.categoria).subscribe(data => {
+
+
+      console.log(data);
       // Convertir las propiedades del objeto en un array
       const dataArray = Object.values(data);
+
       this.productos = dataArray.map((objeto: any) => new Producto(
         Number(objeto.IDProducto),
         objeto.NombreProducto,
@@ -113,7 +121,10 @@ export class ProductosComponent implements OnInit {
         Number(objeto.UnidadProducto),
         Number(objeto.PrecioProducto),
         objeto.DescripcionProducto
+       // objeto.urlImagen
       ));
+
+      //LLAMAR AL JSON CON EL ID DEL OBJETO Y RECUPERAR LA RUTA A LA IMAGEN
 
       this.productosFiltrados = this.productos;
       console.log(this.productos);
@@ -131,6 +142,34 @@ export class ProductosComponent implements OnInit {
     
   //   );
   // }
+
+  filtroProductos(){
+ 
+    if(this.filtrosSeleccionado=="alfabetico"){
+
+    this.productosFiltrados = this.productosFiltrados
+    .slice()
+    .sort((producto1, producto2) => producto1.NombreProducto.localeCompare(producto2.NombreProducto));
+
+    }else if(this.filtrosSeleccionado=="alfabeticoinverso"){
+      this.productosFiltrados = this.productosFiltrados
+      .slice()
+      .sort((producto1, producto2) => producto2.NombreProducto.localeCompare(producto1.NombreProducto));
+
+    }else if(this.filtrosSeleccionado=="preciomas"){
+      this.productosFiltrados = this.productosFiltrados
+      .slice()
+      .sort((producto1, producto2) => producto2.PrecioProducto - producto1.PrecioProducto);
+     
+
+    }else if(this.filtrosSeleccionado=="preciomenos"){
+      this.productosFiltrados = this.productosFiltrados
+      .slice()
+      .sort((producto1, producto2) => producto1.PrecioProducto - producto2.PrecioProducto);
+      
+
+    }
+  }
 
 
 }
