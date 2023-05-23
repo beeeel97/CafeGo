@@ -10,7 +10,13 @@ body,
 .navbar {
     align-items: center;
 }
+.menunav{
+    align-items: center;
+}
+.menudown{
+    margin-top:15px;
 
+}
 .navbar-nav {
     margin: 0;
 }
