@@ -19,7 +19,7 @@ export class ServiceProducto {
   
  obtenerProductoByCategoria(categoria: string) {
   const body = { categoria: categoria }; 
- console.log(categoria)
+ console.log("estoy en el servicio",categoria)
   return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(body));
    
  }

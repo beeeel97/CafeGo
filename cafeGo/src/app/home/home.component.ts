@@ -38,6 +38,7 @@ export class HomeComponent {
   obtenerValorInputOculto(evento: Event) {
     let value = (<HTMLInputElement>evento.target).value;
     this.categoria = value;
+    console.log("que categoria he seleccionado", this.categoria)
       }
 
 
