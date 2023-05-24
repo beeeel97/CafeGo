@@ -1,0 +1,34 @@
+
+<div class="productCart-wrapper">
+    <article class="productCart" *ngFor="let producto of miCarrito$ | async">
+      <div class="productCart-body">
+        <p>{{producto.NombreProducto}}</p>
+        <!-- <div class="productCart-body-info">
+          <p> {{producto.PrecioProducto}} euros</p>
+          <p> 1 uds</p>
+        </div> -->
+      </div>
+      <div class="productCart-total">
+        <p> {{totalProductos(producto.PrecioProducto, producto.cantidad)}} euros</p>
+      </div>
+      <div class="productCart-buttons">
+        <div class="productCart-buttons-operators">
+          <i
+            class="fa-solid fa-minus"
+            (click)="updateUnits('minus', producto.IDProducto )"
+          ></i>
+          <span>{{producto.cantidad}}</span>
+          <i
+            class="fa-solid fa-plus"
+            (click)="updateUnits('add', producto.IDProducto )"
+          ></i>
+        </div>
+        <i class="fa-solid fa-trash" (click)="deleteProductos(producto.IDProducto)"></i>
+      </div>
+    </article>
+    <div class="cartTotal">
+      <p class="cartTotal-total">Total: {{totalCart()}} </p>
+    </div>
+    <button class="cart-btn">Ir a mi carrito</button>
+  </div>
+  

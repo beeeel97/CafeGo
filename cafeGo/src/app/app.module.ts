@@ -15,6 +15,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { MenuNavegacionComponent } from './menu-navegacion/menu-navegacion.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorPipe } from './pipes/buscador.pipe';
+import { CarritoComponent } from './carrito/carrito.component';
+
 
 
 const appRoutes:Routes=[
@@ -36,7 +38,8 @@ const appRoutes:Routes=[
     RegistroComponent,
     MenuNavegacionComponent,
     BuscadorComponent,
-    BuscadorPipe
+    BuscadorPipe,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
