@@ -20,15 +20,15 @@
     <div class="row"  >
 
       <!-- <input  id= "inputHiddenaCategoria" type="hidden" name="ofertas" value="TodosProductos" >   -->
-        <input id= "inputHiddenCategoria" class="circulo" type="submit" value="TodosProductos" (click)="productos(Categoria)"  />
+        <input id= "inputHiddenCategoria" class="circulo" type="submit" value="TodosProductos" (click)="productos($event)"  />
 
 </div>
 
     <div class="row"  *ngFor="let categoria of categorias; let i = index">
     
-      
+
     <!-- <input id= "inputHiddenaCategoria" type="hidden" value={{categoria}} name="ofertas" >  -->
-            <input id= "inputHiddenCategoria" class="circulo" type="submit" value={{categoria}} (click)="productos(Categoria)"  />
+            <input id= "inputHiddenCategoria" class="circulo" type="submit" value={{categoria}} (click)="productos($event)"  />
 
     </div>
 
