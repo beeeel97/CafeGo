@@ -18,7 +18,7 @@ export class MenuNavegacionComponent {
 
    IDUsuario:number =1
 
-    categoriaNavegacion: string ="";
+  categoriaNavegacion: string ="";
 
     navegarMenuCategoria(evento: Event){
   
