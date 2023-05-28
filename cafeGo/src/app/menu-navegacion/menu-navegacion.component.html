@@ -8,7 +8,7 @@
     <!--MENU-->
   <ul class="navbar-nav">
     <li class="nav-item" (click)="navegarHome()">
-        <button class="nav-link active bg-orange border-0" value="home">Home</button>
+        <button class="nav-link active bg-orange border-0" value="home" >Home</button>
       </li>
       <li class="nav-item" (click)="navegarMenuCategoria($event)">
         <button class="nav-link active bg-orange border-0" value="TodosProductos">Todos los productos</button>
@@ -55,18 +55,29 @@
 
   <!-- <app-buscador></app-buscador> -->
   
-  <!--CARRITO Y PERFIL-->
    <!--CARRITO Y PERFIL-->
    <div class="nav-end d-flex justify-content-center align-items-center">
     <div>
         <a href="administrador.html"><img class="nav-link btn btn-outline-light btn-floating m-1"
                 src="./assets/images/tuerca.png" alt="" width="45" height="" /></a>
     </div>
-    <div>
-        <a href="carrito.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/carrito.png" alt="" width="60" height="" /></a>
+
+    <!-- carrito -->
+
+    <div class="navbar-cart" (click)="onToggleCart()">
+      <div class="navbar-cart-items" >
+        <p class="items-num">{{(miCarrito$ | async)?.length}}</p>
+      </div>
+      <img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/carrito.png" alt="" width="60" height="" />
     </div>
+
+  <!-- PERFIL -->
     <div>
         <a href="perfil.html"><img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/Perfil.png" alt="" width="55" height="45" /></a>
     </div>
 </div>
 </nav>
+
+<div class="cart" [ngClass]="{show: viewCart }">
+  <app-carrito></app-carrito>
+</div>

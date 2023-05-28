@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceProducto } from '../services/servicio-producto.service';
 import { Producto } from '../models/Producto';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-productos',
@@ -30,7 +31,7 @@ export class ProductosComponent implements OnInit {
    @Input()
   propiedadRecibida!: string;
 
-  constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto) { }
+  constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto, private serviceCarrito: CarritoService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -59,8 +60,9 @@ export class ProductosComponent implements OnInit {
         Number(objeto.Frio),
         Number(objeto.UnidadProducto),
         Number(objeto.PrecioProducto),
-        objeto.DescripcionProducto
+        objeto.DescripcionProducto,
        // objeto.urlImagen
+       0 //cantidad que el usuario luego añada al carrito
       ));
 
       //LLAMAR AL JSON CON EL ID DEL OBJETO Y RECUPERAR LA RUTA A LA IMAGEN
@@ -73,14 +75,6 @@ export class ProductosComponent implements OnInit {
   terminoBusqueda: string = '';
   resultados: Producto[] = [];
   
-  // buscarProductos() {
-  //   this.resultados = this.productos.filter(producto =>{
-  //       producto.NombreProducto.toLowerCase().includes(this.terminoBusqueda.toLowerCase());
-  //         console.log(this.resultados);
-  //   }
-    
-  //   );
-  // }
 
   filtroProductos(){
  
@@ -109,6 +103,15 @@ export class ProductosComponent implements OnInit {
 
     }
   }
+
+  //Añadir productos al carrito
+
+  anadirProductoCarrito(producto: Producto){
+
+    this.serviceCarrito.añadirProducto(producto);
+    
+  }
+
 
 
 }

@@ -17,10 +17,10 @@
 <main>
     <div class="search-container">
         <form class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filterProductos" name="filterProductos">
-            <div class="input-group-append">
+            <input type="text" class="form-control  border border-warning " placeholder="Buscar..." [(ngModel)]="filterProductos" name="filterProductos">
+            <!-- <div class="input-group-append">
                 <button class="btn bg-orange" type="submit">Buscar</button>
-            </div>
+            </div> -->
         </form>
     </div>
 
@@ -44,9 +44,9 @@
             <div class="card mx-3 card-size" *ngFor="let producto of productosFiltrados | buscador:filterProductos">
                 <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
                 <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5" style="position: relative; z-index: 2;">{{producto.NombreProducto}}</h4>
+                    <h4 class="card-title font-weight-bold h5">{{producto.NombreProducto}}</h4>
                     <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
-                    <button class="btn bg-orange">Añadir</button>
+                    <button class="btn bg-orange" (click)="anadirProductoCarrito(producto)">Añadir</button>
                 </div>
             </div>
         </div>

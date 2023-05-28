@@ -8,6 +8,7 @@ export class Producto{
     UnidadProducto:number;
     PrecioProducto:number;
     DescripcionProducto:string;
+    cantidad:number;
    // urlImagen:string;
 
 
@@ -20,6 +21,7 @@ export class Producto{
         PrecioProducto: number,
         DescripcionProducto: string,
     //    urlImagen:string
+       cantidad:number
       ) {
         this.IDProducto = IDProducto;
         this.NombreProducto = NombreProducto;
@@ -28,6 +30,7 @@ export class Producto{
         this.UnidadProducto = UnidadProducto;
         this.PrecioProducto = PrecioProducto;
         this.DescripcionProducto = DescripcionProducto;
+        this.cantidad = cantidad;
      //  this.urlImagen = urlImagen;
       }
     
