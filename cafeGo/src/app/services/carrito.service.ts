@@ -64,6 +64,33 @@ export class CarritoService {
 
 
   }
+ 
+  //metodo para el componente pedido se renderice al vuelo
+  // obtenerCantidad( id:number){
+
+  //   const producto = this.listaProductos.filter((product) => {
+  //     return product.IDProducto = id
+  //   })
+
+  //   console.log(producto[0]);
+
+  //   return producto[0].cantidad;
+
+  // }
+
+  //metodo para el componente pedido se renderice al vuelo
+
+  // totalPorProducto(id:number){
+
+  //   const producto = this.listaProductos.filter((product) => {
+  //     return product.IDProducto = id;
+  //   })
+
+  //   return producto[0].cantidad*producto[0].PrecioProducto;
+  
+  // }
+
+
   totalCart() {
     const total = this.listaProductos.reduce(function (acc, product) { return acc + (product.cantidad * product.PrecioProducto); }, 0)
     return total

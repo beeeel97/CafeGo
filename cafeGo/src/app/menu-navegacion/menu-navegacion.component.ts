@@ -18,11 +18,11 @@ export class MenuNavegacionComponent {
 
    IDUsuario:number =1
 
-  categoriaNavegacion: string ="";
+   categoriaNavegacion: string ="";
 
     navegarMenuCategoria(evento: Event){
   
-      //recuperar la palabra snack
+      //recuperar la palabra de la categoria
       this.obtenerValorButton(evento);
       this.navegarProductos();
   
@@ -42,9 +42,11 @@ export class MenuNavegacionComponent {
         };
     
        console.log(navigationExtras);
+
+       this.router.navigate(['/productos'], navigationExtras);
       
-       const url = `/productos?categoria=${this.categoriaNavegacion}&usuario=${this.IDUsuario}`;
-       this.router.navigateByUrl(url);
+      //  const url = `/productos?categoria=${this.categoriaNavegacion}&usuario=${this.IDUsuario}`;
+      //  this.router.navigateByUrl(url);
 
        
       }
@@ -59,8 +61,6 @@ export class MenuNavegacionComponent {
     
     //para que se muestre o no el carrito
     viewCart: boolean = false;
-
-    //myCart$ = this.storeService.myCart$;
 
     onToggleCart() {
     this.viewCart = !this.viewCart

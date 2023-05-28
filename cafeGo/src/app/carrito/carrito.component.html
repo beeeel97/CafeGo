@@ -1,5 +1,5 @@
 
-<div class="productCart-wrapper">
+<div class="productCart-wrapper"  [ngClass]="{'hidden': !mostrarCarrito}">
     <article class="productCart" *ngFor="let producto of miCarrito$ | async">
       <div class="productCart-body">
         <p>{{producto.NombreProducto}}</p>
@@ -29,6 +29,6 @@
     <div class="cartTotal">
       <p class="cartTotal-total">Total: {{totalCart()}} </p>
     </div>
-    <button class="cart-btn">Pagar</button>
+    <button class="cart-btn" (click)="realizarPedido()">Resumen del pedido y pagar</button>
   </div>
   

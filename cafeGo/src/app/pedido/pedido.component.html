@@ -1,0 +1,43 @@
+<app-menu-navegacion></app-menu-navegacion>
+<main>
+    <div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">Producto</th>
+                <th class="text-center" scope="col">Precio</th>
+                <th class="text-center" scope="col">Cantidad</th>
+                <th class="text-center" scope="col">Total por producto</th>
+                <th class="text-center"  scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <div *ngIf="productosCarrito.length === 0">
+                <p>No hay productos en el carrito.</p>
+              </div>
+            <tr *ngFor="let producto of productosCarrito">
+                <th class="text-center" scope="row">{{producto.NombreProducto}}</th>
+                <td class="text-center">{{producto.PrecioProducto}}</td>
+                <td class="text-center" >{{producto.cantidad}}</td>
+                <td class="text-center">{{totalProducto(producto.PrecioProducto, producto.cantidad)}}</td>   
+            </tr>
+
+        </tbody>
+        <tfoot class="mt-4">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="cartTotal-total text-center " > Total: {{totalCarrito()}}</td> 
+              
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-warning">Pagar</button>
+         </div>
+</div>
+</main>

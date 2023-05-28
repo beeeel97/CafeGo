@@ -16,6 +16,7 @@ import { MenuNavegacionComponent } from './menu-navegacion/menu-navegacion.compo
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorPipe } from './pipes/buscador.pipe';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PedidoComponent } from './pedido/pedido.component';
 
 
 
@@ -25,6 +26,7 @@ const appRoutes:Routes=[
   {path:"login", component:LoginComponent},
   {path:"registro", component:RegistroComponent},
   {path:"productos", component:ProductosComponent},
+  {path:"pedido", component:PedidoComponent},
  
 ]
 
@@ -40,6 +42,7 @@ const appRoutes:Routes=[
     BuscadorComponent,
     BuscadorPipe,
     CarritoComponent,
+    PedidoComponent,
   ],
   imports: [
     BrowserModule,
