@@ -15,7 +15,7 @@ export class CarritoComponent {
 
   totalProductos(precio:number, unidades:number){
 
-    return precio*unidades;
+    return Number((precio * unidades).toFixed(2));
 
   }
 
@@ -47,7 +47,7 @@ export class CarritoComponent {
 
   totalCart(){
     const result = this.serviceCarrito.totalCart();
-    return result;
+    return  result.toFixed(2);;
   }
   
 

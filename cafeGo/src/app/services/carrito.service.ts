@@ -24,7 +24,6 @@ export class CarritoService {
 
   añadirProducto(product:Producto){
 
-      
       if (this.listaProductos.length === 0) {
         product.cantidad = 1;
         this.listaProductos.push(product);

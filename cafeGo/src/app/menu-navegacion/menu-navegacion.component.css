@@ -46,6 +46,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+
 }
 
 .productCart {
@@ -123,12 +124,13 @@
 
 .navbar-cart-items{
     position: absolute;
-        left: 8.5px;
-        top: -0.8rem;
-        color:white;
+        left: 52px;
+        top: -0.5rem;
+        color:black;
+        font-weight: bold;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 50%;
-        background-color: rgb(172, 14, 14);
+        background-color: white;
         height: 20px;
         width: 20px;
 }
