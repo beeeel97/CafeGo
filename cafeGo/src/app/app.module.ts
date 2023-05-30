@@ -16,6 +16,7 @@ import { MenuNavegacionComponent } from './menu-navegacion/menu-navegacion.compo
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorPipe } from './pipes/buscador.pipe';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -40,6 +41,7 @@ const appRoutes:Routes=[
     BuscadorComponent,
     BuscadorPipe,
     CarritoComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
