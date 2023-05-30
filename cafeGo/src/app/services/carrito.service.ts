@@ -64,7 +64,8 @@ export class CarritoService {
 
 
   }
- 
+
+  
   //metodo para el componente pedido se renderice al vuelo
   // obtenerCantidad( id:number){
 
@@ -94,5 +95,9 @@ export class CarritoService {
   totalCart() {
     const total = this.listaProductos.reduce(function (acc, product) { return acc + (product.cantidad * product.PrecioProducto); }, 0)
     return total
+  }
+
+  getListaProductos(){
+    return this.listaProductos;
   }
 }

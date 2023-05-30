@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/Usuario';
+import { LocalStorageService } from '../services/local-storage.service';
 import { UsuarioService } from '../services/servicio-usuario.service';
 
 
@@ -13,7 +15,7 @@ import { UsuarioService } from '../services/servicio-usuario.service';
 
 export class LoginComponent {
 
-  constructor(private router:Router, private usuariosServicio: UsuarioService) {
+  constructor(private router:Router, private usuariosServicio: UsuarioService, private localStorageService:LocalStorageService) {
     // this.obtenerUsuarios();
    }
 
@@ -47,6 +49,7 @@ export class LoginComponent {
       this.usuario.password=password;
 
       this.obtenerUsuarios();
+   //   this.createLocalStorageCarrito();
        this.navegarHome();
     }
 
@@ -68,6 +71,14 @@ export class LoginComponent {
     }
   
     }
+
+      //LOCAL STORAGE
+
+      createLocalStorageCarrito(){
+        this.localStorageService.setItem("carrito", []);
+       // localStorage.setItem("cart"+localStorage.getItem("usuario"), JSON.stringify(this.cart));
+  
+      }
   
     
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CarritoService } from '../services/carrito.service';
 import { Producto } from '../models/Producto';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-carrito',
@@ -10,7 +11,10 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 })
 export class CarritoComponent {
 
-  constructor(private serviceCarrito: CarritoService, private router: Router, private route: ActivatedRoute,) { }
+  constructor(private serviceCarrito: CarritoService, private router: Router, private route: ActivatedRoute, private localStorageService: LocalStorageService) { 
+
+   this.loadCart();
+  }
 
   //oculatar el div cuando estemos en el componente pedido 
   mostrarCarrito:boolean = true;
@@ -27,29 +31,37 @@ export class CarritoComponent {
 
   }
 
-  deleteProductos(id: number) {
+  deleteProductos(id: number, product: Producto) {
     this.serviceCarrito.deleteProduct(id);
+    this.localStorageService.actualizarLocalStorage(product, "borrarTodos");
   }
 
-  updateUnits(operation: string, id: number) {
+  updateUnits(operation: string, product: Producto) {
 
     //buscar mi producto y traerme la info del producto que he pinchado.
-    const product = this.serviceCarrito.findProductById(id);
+    const productID = this.serviceCarrito.findProductById(product.IDProducto);
 
     //si el producto existe en mi carrito
-    if (product) {
+    if (productID) {
       if (operation === 'minus' && product.cantidad > 0) {
         product.cantidad = product.cantidad - 1;
+        this.localStorageService.actualizarLocalStorage(product, "borrar");
       }
       if (operation === 'add') {
         product.cantidad = product.cantidad + 1;
+        this.localStorageService.actualizarLocalStorage(product, "añadir");
 
       }
       //cuando la cantidad llegue a 0 se elimina
       if (product.cantidad === 0) {
-        this.deleteProductos(id)
+        this.deleteProductos(product.IDProducto, product);
+        this.localStorageService.actualizarLocalStorage(product, "borrar");
       }
+
+      
     }
+
+   
 
   }
 
@@ -65,9 +77,6 @@ export class CarritoComponent {
     //oculatar el carrito
 
     this.mostrarCarrito = false;
-
-  
-
 
     //Acceder a la lista de productos
     this.miCarrito$.subscribe(carrito => {
@@ -101,7 +110,18 @@ export class CarritoComponent {
     this.viewCart = !this.viewCart
     };
 
- 
 
+    loadCart() {
+        const storedCart: Producto[] = JSON.parse(localStorage.getItem("carrito") || '{}');
+        console.log("local",storedCart);
+
+        //añadir la lista que recoopero a la lista de productos que esta en el observable
+
+        storedCart.forEach(producto => {
+          this.serviceCarrito.añadirProducto(producto);
+        
+      });
+   
+}
 
 }

@@ -15,15 +15,15 @@
         <div class="productCart-buttons-operators">
           <i
             class="fa-solid fa-minus"
-            (click)="updateUnits('minus', producto.IDProducto )"
+            (click)="updateUnits('minus', producto )"
           ></i>
           <span>{{producto.cantidad}}</span>
           <i
             class="fa-solid fa-plus"
-            (click)="updateUnits('add', producto.IDProducto )"
+            (click)="updateUnits('add', producto )"
           ></i>
         </div>
-        <i class="fa-solid fa-trash" (click)="deleteProductos(producto.IDProducto)"></i>
+        <i class="fa-solid fa-trash" (click)="deleteProductos(producto.IDProducto, producto)"></i>
       </div>
     </article>
     <div class="cartTotal">
