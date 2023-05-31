@@ -49,8 +49,8 @@ export class LoginComponent {
       this.usuario.password=password;
 
       this.obtenerUsuarios();
-   // this.createLocalStorageCarrito();
-       this.navegarHome();
+      this.saveUserLocalStorage(this.usuarios[0].IDUsuario); ;
+      this.navegarHome();
     }
 
     obtenerUsuarios() {
@@ -58,12 +58,12 @@ export class LoginComponent {
       this.usuariosServicio.obtenerUsuarios(this.usuario).subscribe(
         (result) => (this.usuarios = result)
       );
-
-      console.log("hola",this.usuarios);
-      this.saveUserLocalStorage(this.usuarios[0].IDUsuario); 
-   
+    
      // console.log(this.usuarios[0].codUsu);
     }
+
+   
+   
   
   
     navegarHome(){

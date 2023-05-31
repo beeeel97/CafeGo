@@ -115,7 +115,7 @@ export class CarritoComponent {
         const storedCart: Producto[] = JSON.parse(localStorage.getItem("carrito") || '{}');
         console.log("local",storedCart);
 
-        //añadir la lista que recoopero a la lista de productos que esta en el observable
+        //añadir la lista que recupero a la lista de productos que esta en el observable
 
         storedCart.forEach(producto => {
           this.serviceCarrito.añadirProducto(producto);
