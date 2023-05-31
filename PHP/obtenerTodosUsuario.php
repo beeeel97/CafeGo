@@ -14,7 +14,7 @@ header("Content-Type: application/json");
 
  
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "SELECT * FROM usuarios WHERE CorreoUsuario='".$params->email."' AND PassUsuario='".$params->password."'");
+  $registros = mysqli_query($conexion, "SELECT * FROM usuarios");
  // $registros = mysqli_query($conexion, "SELECT * FROM usuarios WHERE CorreoUsuario='alex@educamadrid.com' AND PassUsuario='alex'");
   
   $numRegistros=mysqli_num_rows($registros);
@@ -22,7 +22,7 @@ header("Content-Type: application/json");
   if ($numRegistros==1){
     $datos[] = mysqli_fetch_array($registros);
   }else{
-    $datos[]="usarioNoRegistrado";
+    $datos[]="nohAyUsuario";
   }
 
   //print_r( $datos);

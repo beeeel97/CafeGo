@@ -26,5 +26,9 @@ export class UsuarioService {
 
   }
 
+  getUsuarios(){
+    return this.http.get(`${this.URL}obtenerTodosUsuario.php` );
+  }
+
 
 }

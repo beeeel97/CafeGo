@@ -21,11 +21,11 @@
 
             
                     <!-- <input  id= "inputHiddenaCategoria" type="hidden" name="ofertas" value="TodosProductos" >   -->
-                    <input id="inputHiddenCategoria" class="circulo" type="submit" value="TodosProductos"
+                    <input id="inputHiddenCategoria" class="btn circulo" type="submit" value="TodosProductos"
                         (click)="productos($event)" />
 
                     <!-- <input id= "inputHiddenaCategoria" type="hidden" value={{categoria}} name="ofertas" >  -->
-                    <input *ngFor="let categoria of categorias; let i = index" id="inputHiddenCategoria" class="circulo" type="submit" value={{categoria}}
+                    <input *ngFor="let categoria of categorias; let i = index" id="inputHiddenCategoria" class="btn circulo" type="submit" value={{categoria}}
                         (click)="productos($event)" />
 
               

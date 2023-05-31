@@ -14,7 +14,6 @@ header("Content-Type: application/json");
  
   // REALIZA LA QUERY A LA DB
   $registros = mysqli_query($conexion, "SELECT NombreCategoria FROM categorias");
-  
   $numRegistros=mysqli_num_rows($registros);
 
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY

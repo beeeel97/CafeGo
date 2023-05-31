@@ -44,6 +44,7 @@ recuperarCarritoCompra (){
           obj.UnidadProducto,
           obj.PrecioProducto,
           obj.DescripcionProducto,
+          obj.LinkImagen,
           obj.cantidad
         ));
 
@@ -70,6 +71,14 @@ totalProducto(precio:number, cantidad:number){
 totalCarrito() {
   const result = this.serviceCarrito.totalCart();
   return result.toFixed(2);
+}
+
+pagar(){
+
+  //insertar el pedido en la base de datos
+
+  //pasarela de pago
+
 }
 
 }

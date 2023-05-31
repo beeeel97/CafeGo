@@ -51,8 +51,12 @@
 
                   
                     <input type="submit" class="btn" style="background-color: #F6951B" value="Iniciar sesión" (click)="login(Formulario)"  />
-                    <button type="submit" class="btn" style="background-color: #F6951B; margin-left: 10px;">Registrarse</button>
+                    <button type="submit" class="btn" style="background-color: #F6951B; margin-left: 10px;" routerLink="/registro">Registrarse</button>
                 </div>
+
+                <div  class="text-center">
+                    <p *ngIf="inicioExitoso == false" class="mt-3">{{feedback}}</p>
+                  </div>
             </form>
         </div>
     </main>

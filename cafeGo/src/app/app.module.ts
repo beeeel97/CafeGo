@@ -17,6 +17,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
 import { BuscadorPipe } from './pipes/buscador.pipe';
 import { CarritoComponent } from './carrito/carrito.component';
 import { PedidoComponent } from './pedido/pedido.component';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { AdminUsuarioComponent } from './admin-usuario/admin-usuario.component';
 
 
 
@@ -27,6 +29,10 @@ const appRoutes:Routes=[
   {path:"registro", component:RegistroComponent},
   {path:"productos", component:ProductosComponent},
   {path:"pedido", component:PedidoComponent},
+  {path:"administrador/:IDUsuario", component:AdministradorComponent},
+  {path:"adminUsuario", component:AdminUsuarioComponent},
+
+
  
 ]
 
@@ -43,6 +49,8 @@ const appRoutes:Routes=[
     BuscadorPipe,
     CarritoComponent,
     PedidoComponent,
+    AdministradorComponent,
+    AdminUsuarioComponent,
   ],
   imports: [
     BrowserModule,

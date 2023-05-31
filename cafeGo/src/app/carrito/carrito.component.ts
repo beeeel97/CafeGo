@@ -13,8 +13,14 @@ export class CarritoComponent {
 
   constructor(private serviceCarrito: CarritoService, private router: Router, private route: ActivatedRoute, private localStorageService: LocalStorageService) { 
 
-   this.loadCart();
+  
   }
+
+  ngOnInit() {
+     this.loadCart();
+
+    }
+
 
   //oculatar el div cuando estemos en el componente pedido 
   mostrarCarrito:boolean = true;
@@ -79,9 +85,11 @@ export class CarritoComponent {
     this.mostrarCarrito = false;
 
     //Acceder a la lista de productos
-    this.miCarrito$.subscribe(carrito => {
-      this.productosCarrito = carrito;
-    });
+    // this.miCarrito$.subscribe(carrito => {
+    //   this.productosCarrito = carrito;
+    // });
+
+    this.productosCarrito=this.serviceCarrito.getListaProductos();
 
     console.log("se acttualiza el carrito cuando estamos en pagar?", this.productosCarrito)
     console.log("y el observable?", this.miCarrito$)
@@ -112,6 +120,12 @@ export class CarritoComponent {
 
 
     loadCart() {
+
+      console.log("LOAD CAR",this.miCarrito$)
+
+      if(this.localStorageService.getItem("carrito")==null){
+        this.localStorageService.setItem("carrito", []);
+      }else{
         const storedCart: Producto[] = JSON.parse(localStorage.getItem("carrito") || '{}');
         console.log("local",storedCart);
 
@@ -121,6 +135,8 @@ export class CarritoComponent {
           this.serviceCarrito.añadirProducto(producto);
         
       });
+      }
+   
    
 }
 

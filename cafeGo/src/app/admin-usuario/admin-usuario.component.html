@@ -1,0 +1,38 @@
+<div class="container table-responsive">
+    <div class="container p-5 my-3 text-white text-center">
+        <a href="crearUsuario.html"><button class="btn" style="background-color: #F6951B">Crear usuario</button></a>
+        <a href="usuarioAdministrador.html"><button class="btn" style="background-color: #F6951B">Ver usuario</button></a>
+        <a href="administrador.html"><button class="btn" style="background-color: #F6951B">Volver</button></a>
+    </div>
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Contraseña</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+          <td>
+            {{ usuario.ID }}
+          </td>
+          <td>
+            {{ usuario.nombre }}
+          </td>
+          <td>
+            {{ usuario.email }}
+          </td>
+          <td>
+            {{ usuario.contraseña }}
+          </td>
+          <td>
+            <button type="button" name="button" class="btn btn-danger">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

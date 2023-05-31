@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CarritoService } from '../services/carrito.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-menu-navegacion',
@@ -10,13 +11,12 @@ import { CarritoService } from '../services/carrito.service';
 export class MenuNavegacionComponent {
 
 
-  constructor(private router:Router, private route:ActivatedRoute, private serviceCarrito: CarritoService) {
-    
+  constructor(private router:Router, private route:ActivatedRoute, private serviceCarrito: CarritoService, private localStorageService: LocalStorageService) {
+   console.log("dddd",this.IDUsuario)
    }
 
-   //IDUsuario habria que recogerlo del local storage, demomento pongo uno a pincho
 
-   IDUsuario:number =1
+   IDUsuario:number =this.localStorageService.getItem("usuario");
 
    categoriaNavegacion: string ="";
 
@@ -53,6 +53,8 @@ export class MenuNavegacionComponent {
 
       navegarHome(){}
 
+
+
       //CARRITO
 
     //observable de mi carrito para actualizar el numero de productos en el carrito
@@ -65,5 +67,16 @@ export class MenuNavegacionComponent {
     onToggleCart() {
     this.viewCart = !this.viewCart
     };
+
+    //CERRARSESION
+
+    cerrarSesion(){
+
+      this.serviceCarrito.deleteListaProductos();
+      this.localStorageService.removeItem("usuario");
+      this.localStorageService.removeItem("carrito");
+      this.router.navigate(['/login']);
+
+    }
 
 }

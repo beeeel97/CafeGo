@@ -23,31 +23,9 @@ export class ServiceProducto {
   const body = { categoria: categoria }; 
  console.log("estoy en el servicio",categoria)
 
- const productos: Producto[] = [
-  new Producto(
-    1,
-    "Producto 1",
-    1,
-    0,
-    1,
-    10,
-    "Descripción del producto 1",
-    0
-  ),
-  new Producto(
-    2,
-    "Producto 2",
-    2,
-    1,
-    2,
-    20,
-    "Descripción del producto 2",
-    0
-  )
-];
 
- // return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(body)) ;
- return of(productos);
-   
+  return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(body)) ;
+
+
  }
 }

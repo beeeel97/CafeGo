@@ -100,4 +100,10 @@ export class CarritoService {
   getListaProductos(){
     return this.listaProductos;
   }
+
+  deleteListaProductos(){
+    this.listaProductos = [];
+    this.miCarrito.next(this.listaProductos);
+    return this.listaProductos;
+  }
 }

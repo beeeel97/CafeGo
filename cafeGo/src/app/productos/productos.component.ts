@@ -42,6 +42,7 @@ export class ProductosComponent implements OnInit {
       console.log("aquí", this.categoria);
       this.obtenerProductoByCategoria();
     });
+
   }
 
   obtenerProductoByCategoria() {
@@ -62,11 +63,11 @@ export class ProductosComponent implements OnInit {
         Number(objeto.UnidadProducto),
         Number(objeto.PrecioProducto),
         objeto.DescripcionProducto,
-       // objeto.urlImagen
+       objeto.LinkImagen,
        0 //cantidad que el usuario luego añada al carrito
       ));
 
-      //LLAMAR AL JSON CON EL ID DEL OBJETO Y RECUPERAR LA RUTA A LA IMAGEN
+  
 
       this.productosFiltrados = this.productos;
       console.log(this.productos);
