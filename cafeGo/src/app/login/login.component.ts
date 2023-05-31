@@ -49,7 +49,7 @@ export class LoginComponent {
       this.usuario.password=password;
 
       this.obtenerUsuarios();
-   //   this.createLocalStorageCarrito();
+   // this.createLocalStorageCarrito();
        this.navegarHome();
     }
 
@@ -58,7 +58,10 @@ export class LoginComponent {
       this.usuariosServicio.obtenerUsuarios(this.usuario).subscribe(
         (result) => (this.usuarios = result)
       );
-      console.log("hola",this.usuarios)
+
+      console.log("hola",this.usuarios);
+      this.saveUserLocalStorage(this.usuarios[0].IDUsuario); 
+   
      // console.log(this.usuarios[0].codUsu);
     }
   
@@ -78,6 +81,11 @@ export class LoginComponent {
         this.localStorageService.setItem("carrito", []);
        // localStorage.setItem("cart"+localStorage.getItem("usuario"), JSON.stringify(this.cart));
   
+      }
+
+      saveUserLocalStorage(idUser: number) {
+        /* console.log("usuario a guardar en el localstorgae", user) */
+        this.localStorageService.setItem("usuario", idUser);
       }
   
     
