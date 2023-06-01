@@ -13,24 +13,19 @@ header("Content-Type: application/json");
   $params = json_decode(file_get_contents('php://input'));
 
  
-  // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "SELECT * FROM usuarios");
- // $registros = mysqli_query($conexion, "SELECT * FROM usuarios WHERE CorreoUsuario='alex@educamadrid.com' AND PassUsuario='alex'");
-  
-  $numRegistros=mysqli_num_rows($registros);
-  // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
-  if ($numRegistros==1){
-    $datos[] = mysqli_fetch_array($registros);
-  }else{
-    $datos[]="nohAyUsuario";
-  }
+ // REALIZA LA QUERY A LA DB
+$registros = mysqli_query($conexion, "SELECT * FROM usuarios");
 
-  //print_r( $datos);
-  
-  $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+$datos = array(); // Array para almacenar los datos de los usuarios
 
-  
-  echo $json; // MUESTRA EL JSON GENERADO
+// RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
+while ($row = mysqli_fetch_array($registros)) {
+    $datos[] = $row;
+}
+
+$json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+
+echo $json; // MUESTRA EL JSON GENERADO
   
  // header('Content-Type: application/json');
 ?>

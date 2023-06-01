@@ -19,6 +19,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { AdminUsuarioComponent } from './admin-usuario/admin-usuario.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -31,6 +32,7 @@ const appRoutes:Routes=[
   {path:"pedido", component:PedidoComponent},
   {path:"administrador/:IDUsuario", component:AdministradorComponent},
   {path:"adminUsuario", component:AdminUsuarioComponent},
+  {path:"perfil", component:PerfilComponent},
 
 
  
@@ -51,6 +53,7 @@ const appRoutes:Routes=[
     PedidoComponent,
     AdministradorComponent,
     AdminUsuarioComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

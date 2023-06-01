@@ -18,16 +18,16 @@
       <tbody>
         <tr *ngFor="let usuario of usuarios; let i = index">
           <td>
-            {{ usuario.ID }}
+            {{ usuario.IDUsuario }}
           </td>
           <td>
-            {{ usuario.nombre }}
+            {{ usuario.NombreUsuario }}
           </td>
           <td>
-            {{ usuario.email }}
+            {{ usuario.CorreoUsuario }}
           </td>
           <td>
-            {{ usuario.contraseña }}
+            {{ usuario.PassUsuario }}
           </td>
           <td>
             <button type="button" name="button" class="btn btn-danger">Borrar</button>
@@ -36,3 +36,15 @@
       </tbody>
     </table>
   </div>
+      <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>
