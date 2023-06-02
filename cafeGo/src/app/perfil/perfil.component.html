@@ -1,108 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CafeGo</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script> -->
-
-</head>
-
-<body>
-
-        <app-menu-navegacion></app-menu-navegacion>
-         <!-- 
-************************************************
-    PERFIL USUARIO
-************************************************
-
-Traemos los datos desde la BBDD - LOS PLACEHOLDER-->
-
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4" style="margin-top: 50px;">
-                <div class="text-center">
-                    <img src="./assets/images/avatar.png" class="avatar img-circle img-thumbnail"
-                        alt="avatar">
-                    <!-- <h6>Sube una foto</h6>
-                    <input type="file" class="text-center center-block file-upload"> -->
-                </div>
-                <br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="margin-top: 50px;">
+            <div class="text-center">
+                <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
+                    alt="avatar">
+                <h6>Sube una foto</h6>
+                <input type="file" class="text-center center-block file-upload">
             </div>
+            <br>
+        </div>
 
-            <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
-            <div class="col-sm-8" style="margin-top: 50px;" *ngFor="let usuario of usuarios; let i = index">
-                <div class="tab-pane active" id="home">
-                    <form class="form" action="##" method="post" id="perfil">
+        <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
+        <div class="col-sm-8" style="margin-top: 50px;">
+            <div class="tab-pane active" id="home">
+                <form class="form" action="##" method="post" id="perfil" #Formulario="ngForm">
+                    <div class="form-group mt-3">
                         <!-- DIV NOMBRE -->
-                        <div class="form-group mt-3">
-                            <div class="col-xs-6">
-                                <label for="nombre">
-                                    <p>Nombre:</p>
-                                </label>
-                                {{ usuario.NombreUsuario }}
-                            </div>
+                        <div class="col-xs-6">
+                            <label for="nombre">
+                                <h5>Nombre</h5>
+                            </label>
+                            <input type="text" class="form-control" name="nombre" id="nombre"  [(ngModel)]="modificarForm.nombre" 
+                                placeholder="{{ usuario?.NombreUsuario}}">
                         </div>
+                    </div>
 
-                        <!-- DIV EMAIL -->
-                        <div class="form-group mt-3">
-                            <div class="col-xs-6">
-                                <label for="email">
-                                    <p>Email:</p>
-                                </label>
-                                {{ usuario.CorreoUsuario }}
-                            </div>
+                    <!-- DIV APELLIDOS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="last_name">
+                                <h5>Apellidos</h5>
+                            </label>
+                            <input type="text" class="form-control" name="apellidos" id="apellidos"
+                               [(ngModel)]="modificarForm.apellido" placeholder="{{ usuario?.NombreUsuario}}">
                         </div>
+                    </div>
 
-
-                        <!-- DIV CONTRASEÑAS -->
-                        <div class="form-group mt-3">
-                            <div class="col-xs-6">
-                                <label for="password">
-                                    <p>Contraseña</p>
-                                </label>
-                                {{ usuario.PassUsuario }}
-                            </div>
+                    <!-- DIV EMAIL -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="email">
+                                <h5>Email</h5>
+                            </label>
+                            <input type="email" class="form-control" name="email" id="email"  [(ngModel)]="modificarForm.email" 
+                                placeholder="{{ usuario?.CorreoUsuario}}">
                         </div>
-
-                        <!-- <div class="form-group mt-3">
-                            <div class="col-xs-6">
-                                <label for="password2">
-                                    <h5>Verifica la contraseña</h5>
-                                </label>
-                                <input type="password" class="form-control" name="password2" id="password2">
-                            </div>
-                        </div> -->
+                    </div>
 
 
-                        <!-- DIV BOTON GUARDAR LOS NUEVOS DATOS -->
-                        <!-- <div class="form-group mt-3">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-success" type="submit"> Guardar</button>
-                            </div>
-                        </div> -->
-                    </form>
-                </div>
+                    <!-- DIV CONTRASEÑAS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="password">
+                                <h5>Contraseña</h5>
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="modificarForm.password" >
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="password2">
+                                <h5>Verifica la contraseña</h5>
+                            </label>
+                            <input type="password" class="form-control" name="passwordRepeat" id="password2" [(ngModel)]="modificarForm.passwordRepeat">
+                        </div>
+                    </div>
+
+
+                    <!-- DIV BOTON GUARDAR LOS NUEVOS DATOS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-success" type="submit" (click)=modificarDatos(Formulario)> Guardar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        </div>
-</main>
-<!-- 
-************************************************
-    FOOTER 
-************************************************
-
- -->
-
- <footer class="footer">
-    <div class="container text-center">
-      <p>CafeGo - Disfruta de tu tiempo.</p>
     </div>
-  </footer>
-</body>
-</html>
