@@ -13,19 +13,19 @@ export class PerfilComponent {
 
   usuario: Usuario | undefined;
 
-    //objeto con los atributos que son los campos del formulario
-    modificarForm = {
-      nombre: "",
-      apellido:"",
-      email:"",
-      password: "",
-      passwordRepeat: ""
-    }
+  //objeto con los atributos que son los campos del formulario
+  modificarForm = {
+    nombre: "",
+    apellido: "",
+    email: "",
+    password: "",
+    passwordRepeat: ""
+  }
 
-    //Usuario para guardar en la BBDD
+  //Usuario para guardar en la BBDD
 
-    usuarioBBDD!: Usuario;
-  
+  usuarioBBDD!: Usuario;
+
 
   constructor(private serviceUsuario: UsuarioService, private localStorage: LocalStorageService) {
     this.getUsuarios();
@@ -47,17 +47,26 @@ export class PerfilComponent {
     });
   }
 
-  modificarDatos(form: NgForm){
+  modificarDatos(form: NgForm) {
 
     const email = form.value.email;
     const nombre = form.value.nombre;
     const apellido = form.value.apellido;
-    const passwordRepeat = form.value.password;
-    this.modificarForm.passwordRepeat = form.value.passwordRepeat;
+    const password = form.value.password;
+    const passwordRepeat = form.value.passwordRepeat;
 
     //comporbar que ambas contraseñas sea iguales
 
-    this.usuarioBBDD.NombreUsuario = nombre;
+    if (password == passwordRepeat) {
+      this.usuarioBBDD.NombreUsuario = nombre;
+      this.usuarioBBDD.CorreoUsuario = email;
+      this.usuarioBBDD.PassUsuario = password;
+    }else{
+      //poner alguna varible para dar feedback al usuario
+    }
+
+
+
 
 
   }
