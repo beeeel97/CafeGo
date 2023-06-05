@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../services/servicio-usuario.service';
 import { Usuario } from '../models/Usuario';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-usuario',
@@ -10,13 +11,12 @@ import { Usuario } from '../models/Usuario';
 export class AdminUsuarioComponent {
 
 
-  constructor(private serviceUsuario: UsuarioService){
+  constructor(private router:Router, private route:ActivatedRoute, private serviceUsuario: UsuarioService){
     this.getUsuarios();
 
   }
 
   usuarios:Usuario[] = [];
-
 
   
   getUsuarios(){
@@ -31,8 +31,6 @@ export class AdminUsuarioComponent {
       objeto.CorreoUsuario,
       objeto.PassUsuario
     
-
-      
     ));
     console.log(this.usuarios.length); // Imprimir la cantidad de usuarios obtenidos
 
@@ -41,6 +39,23 @@ export class AdminUsuarioComponent {
   )
 
 }
+
+borrarUsuario(idUsuario:number){
+  this.serviceUsuario.borrarUsuario(idUsuario);
+}
+
+verUsuario(idUsuario: number) {
+  const usuarioEncontrado = this.usuarios.find(usuario => usuario.IDUsuario === idUsuario);
+
+  let navigationExtras: NavigationExtras= {
+    queryParams: { usuario: usuarioEncontrado }
+  };
+
+ console.log(navigationExtras);
+
+  this.router.navigate(['/usuario'], navigationExtras)
+}
+
 
 
 }

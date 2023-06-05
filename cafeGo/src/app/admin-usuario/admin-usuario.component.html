@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let usuario of usuarios; let i = index">
-          <td>
+          <td (click)= verUsuario(usuario.IDUsuario )>
             {{ usuario.IDUsuario }}
           </td>
           <td>
@@ -30,7 +30,7 @@
             {{ usuario.PassUsuario }}
           </td>
           <td>
-            <button type="button" name="button" class="btn btn-danger">Borrar</button>
+            <button type="button" name="button" class="btn btn-danger" (click)=borrarUsuario(usuario.IDUsuario)>Borrar</button>
           </td>
         </tr>
       </tbody>

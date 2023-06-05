@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="margin-top: 50px;">
+            <div class="text-center">
+                <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
+                    alt="avatar">
+                <h6>Sube una foto</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div>
+            <br>
+        </div>
+
+        <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
+        <div class="col-sm-8" style="margin-top: 50px;">
+            <div class="tab-pane active" id="home">
+                <form class="form" action="##" method="post" id="perfil" #Formulario="ngForm">
+                    <div class="form-group mt-3">
+                        <!-- DIV NOMBRE -->
+                        <div class="col-xs-6">
+                            <label for="nombre">
+                                <h5>Nombre</h5>
+                            </label>
+                            <input type="text" class="form-control" name="nombre" id="nombre"  [(ngModel)]="modificarForm.nombre" 
+                                placeholder="{{ usuario?.NombreUsuario}}">
+                        </div>
+                    </div>
+
+                    <!-- DIV APELLIDOS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="last_name">
+                                <h5>Apellidos</h5>
+                            </label>
+                            <input type="text" class="form-control" name="apellidos" id="apellidos"
+                               [(ngModel)]="modificarForm.apellido" placeholder="{{ usuario?.NombreUsuario}}">
+                        </div>
+                    </div>
+
+                    <!-- DIV EMAIL -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="email">
+                                <h5>Email</h5>
+                            </label>
+                            <input type="email" class="form-control" name="email" id="email"  [(ngModel)]="modificarForm.email" 
+                                placeholder="{{ usuario?.CorreoUsuario}}">
+                        </div>
+                    </div>
+
+
+                    <!-- DIV CONTRASEÑAS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="password">
+                                <h5>Contraseña</h5>
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="modificarForm.password" >
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="col-xs-6">
+                            <label for="password2">
+                                <h5>Verifica la contraseña</h5>
+                            </label>
+                            <input type="password" class="form-control" name="passwordRepeat" id="password2" [(ngModel)]="modificarForm.passwordRepeat">
+                        </div>
+                    </div>
+
+
+                    <!-- DIV BOTON GUARDAR LOS NUEVOS DATOS -->
+                    <div class="form-group mt-3">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-success" type="submit" (click)=modificarDatos(Formulario)>Guardar</button>
+                        </div>
+                    </div>
+                         <!-- DIV BOTON BORRAR EL USUARIO-->
+                         <div class="form-group mt-3">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-success" type="submit" (click)="usuario?.IDUsuario !== undefined && borrarUsuario(usuario!.IDUsuario)">Borrar</button>
+                            </div>
+                        </div>
+                    <div *ngIf="respuestaBBDD==true">
+                        {{feedbackInsercion}}
+        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

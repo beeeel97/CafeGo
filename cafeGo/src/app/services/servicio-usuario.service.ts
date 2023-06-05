@@ -31,7 +31,14 @@ export class UsuarioService {
   }
   
   modificarUsuario(usuario: Usuario){
-    return this.http.post(`${this.URL}modificarUsuario.php`, usuario);
+    return this.http.post(`${this.URL}modificarUsuario.php`,  JSON.stringify(usuario));
   }
+
+borrarUsuario(idUsuario:number){
+
+  const body = { idUsuario: idUsuario }; 
+  return this.http.post(`${this.URL}borrarUsuario.php`,  JSON.stringify(body));
+
+}
 
 }

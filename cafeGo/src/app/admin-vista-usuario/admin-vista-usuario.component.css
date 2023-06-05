@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    padding-top: 2px;
+}
+
+#texto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: white;
+    padding-top: 2px;
+}
+
+.navbar {
+    align-items: center;
+}
+
+.navbar-nav {
+    margin: 0;
+}
+
+.dropdown-menu,
+.dropdown {
+    background-color: #F6951B;
+}
+
+.bg-orange {
+    background-color: #F6951B;
+}
+
+#dropdownMenuButton2 {
+    color: white;
+}
+
+.footer {
+    background-color: #F6951B;
+    height: 2cm;
+    align-items: center;
+    color: white;
+    margin-top: 30px;
+}
