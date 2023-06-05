@@ -23,7 +23,7 @@ if ($eliminacion) {
     $eliminacionFeedback="false";
 }
 
-$json = json_encode($actualizacion); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+$json = json_encode($eliminacionFeedback); // GENERA EL JSON CON LOS DATOS OBTENIDOS
   
 echo $json; // MUESTRA EL JSON GENERAD
  
