@@ -25,6 +25,7 @@ export class PerfilComponent {
   //Usuario para guardar en la BBDD
 
   usuarioBBDD!: Usuario;
+  respuestaBBDD!: boolean;
 
 
   constructor(private serviceUsuario: UsuarioService, private localStorage: LocalStorageService) {
@@ -65,10 +66,23 @@ export class PerfilComponent {
       //poner alguna varible para dar feedback al usuario
     }
 
+    //llamar al servicio para insertar en la base de datos
 
-
+    this.modificarUsuario();
 
 
   }
+
+  modificarUsuario(){
+    this.serviceUsuario.modificarUsuario(this.usuarioBBDD).subscribe(data=> data=this.respuestaBBDD)
+
+    if(this.respuestaBBDD==true){
+
+     // this.feedbackInsercion = "Usuario modificado correctamente"
+
+    }
+  }
+
+  
 
 }
