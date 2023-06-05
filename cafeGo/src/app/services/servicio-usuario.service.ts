@@ -29,6 +29,9 @@ export class UsuarioService {
   getUsuarios(){
     return this.http.get(`${this.URL}obtenerTodosUsuario.php` );
   }
-
+  
+  modificarUsuario(usuario: Usuario){
+    return this.http.post(`${this.URL}modificarUsuario.php`, usuario);
+  }
 
 }

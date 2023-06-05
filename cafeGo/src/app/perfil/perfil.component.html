@@ -72,8 +72,12 @@
                     <div class="form-group mt-3">
                         <div class="col-xs-12">
                             <br>
-                            <button class="btn btn-success" type="submit" (click)=modificarDatos(Formulario)> Guardar</button>
+                            <button class="btn btn-success" type="submit" (click)=modificarDatos(Formulario)>Guardar</button>
                         </div>
+                    </div>
+                    <div *ngIf="respuestaBBDD==true">
+                        {{feedbackInsercion}}
+        
                     </div>
                 </form>
             </div>

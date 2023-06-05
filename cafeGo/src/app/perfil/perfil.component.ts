@@ -26,6 +26,7 @@ export class PerfilComponent {
 
   usuarioBBDD!: Usuario;
   respuestaBBDD!: boolean;
+  feedbackInsercion:String ="";
 
 
   constructor(private serviceUsuario: UsuarioService, private localStorage: LocalStorageService) {
@@ -77,9 +78,10 @@ export class PerfilComponent {
     this.serviceUsuario.modificarUsuario(this.usuarioBBDD).subscribe(data=> data=this.respuestaBBDD)
 
     if(this.respuestaBBDD==true){
+      this.feedbackInsercion = "Usuario modificado correctamente"
 
-     // this.feedbackInsercion = "Usuario modificado correctamente"
-
+    }else{
+      this.feedbackInsercion = "El usuario no ha podido modificarse"
     }
   }
 
