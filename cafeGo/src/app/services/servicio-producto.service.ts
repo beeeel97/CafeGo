@@ -28,4 +28,10 @@ export class ServiceProducto {
 
 
  }
+
+ obtenerProductos(){
+  const body = { categoria: "TodosProductos" }; 
+  return this.http.post(`${this.URL}obtenerProductoByCategoria.php `, JSON.stringify(body)) ;
+
+ }
 }

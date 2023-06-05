@@ -21,6 +21,7 @@ import { AdministradorComponent } from './administrador/administrador.component'
 import { AdminUsuarioComponent } from './admin-usuario/admin-usuario.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AdminVistaUsuarioComponent } from './admin-vista-usuario/admin-vista-usuario.component';
+import { AdminProductosComponent } from './admin-productos/admin-productos.component';
 
 
 
@@ -55,6 +56,7 @@ const appRoutes:Routes=[
     AdminUsuarioComponent,
     PerfilComponent,
     AdminVistaUsuarioComponent,
+    AdminProductosComponent,
   ],
   imports: [
     BrowserModule,
