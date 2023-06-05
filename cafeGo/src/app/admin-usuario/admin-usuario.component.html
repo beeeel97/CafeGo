@@ -1,9 +1,23 @@
+<app-menu-navegacion></app-menu-navegacion>
+
 <div class="container table-responsive">
-    <div class="container p-5 my-3 text-white text-center">
-        <a href="crearUsuario.html"><button class="btn" style="background-color: #F6951B">Crear usuario</button></a>
-        <a href="usuarioAdministrador.html"><button class="btn" style="background-color: #F6951B">Ver usuario</button></a>
-        <a href="administrador.html"><button class="btn" style="background-color: #F6951B">Volver</button></a>
+  <div class="container p-5 my-3 text-white text-center flex-row">
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCrearUsuario']">
+        Crear nuevo producto
+      </button>
     </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminUsuario']">
+        Ver productos
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
 
       <table class="table">
       <thead>

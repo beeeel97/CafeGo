@@ -34,6 +34,8 @@ const appRoutes:Routes=[
   {path:"pedido", component:PedidoComponent},
   {path:"administrador/:IDUsuario", component:AdministradorComponent},
   {path:"adminUsuario", component:AdminUsuarioComponent},
+  {path:"adminProducto", component:AdminProductosComponent},
+  // {path:"adminCafeteria", component:AdminCafeteriaComponent},
   {path:"perfil", component:PerfilComponent},
   {path:"usuario", component:AdminVistaUsuarioComponent}
 

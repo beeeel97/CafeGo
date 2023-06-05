@@ -11,8 +11,7 @@ export class AdminProductosComponent {
 
   constructor(private serviceProducto: ServiceProducto){
 
-
-  }
+    this.getProducts();  }
 
   productos:Producto[]=[]
 

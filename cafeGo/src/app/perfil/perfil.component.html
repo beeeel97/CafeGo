@@ -1,11 +1,11 @@
+<app-menu-navegacion></app-menu-navegacion>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-4" style="margin-top: 50px;">
             <div class="text-center">
-                <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
+                <img src="./assets/images/avatar.png" class="avatar img-circle img-thumbnail"
                     alt="avatar">
-                <h6>Sube una foto</h6>
-                <input type="file" class="text-center center-block file-upload">
             </div>
             <br>
         </div>
@@ -18,10 +18,9 @@
                         <!-- DIV NOMBRE -->
                         <div class="col-xs-6">
                             <label for="nombre">
-                                <h5>Nombre</h5>
-                            </label>
-                            <input type="text" class="form-control" name="nombre" id="nombre"  [(ngModel)]="modificarForm.nombre" 
-                                placeholder="{{ usuario?.NombreUsuario}}">
+                                <h5>Codigo de registro: 
+                           {{ usuario?.IDUsuario}}</h5>
+                           </label>
                         </div>
                     </div>
 
@@ -29,10 +28,10 @@
                     <div class="form-group mt-3">
                         <div class="col-xs-6">
                             <label for="last_name">
-                                <h5>Apellidos</h5>
+                                <h5>Nombre</h5>
                             </label>
-                            <input type="text" class="form-control" name="apellidos" id="apellidos"
-                               [(ngModel)]="modificarForm.apellido" placeholder="{{ usuario?.NombreUsuario}}">
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                               [(ngModel)]="modificarForm.nombre" placeholder="{{ usuario?.NombreUsuario}}">
                         </div>
                     </div>
 
@@ -83,3 +82,17 @@
             </div>
         </div>
     </div>
+    </div>
+
+        <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>

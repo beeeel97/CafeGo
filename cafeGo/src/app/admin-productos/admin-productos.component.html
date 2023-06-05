@@ -1,56 +1,80 @@
+<app-menu-navegacion></app-menu-navegacion>
+
 <div class="container table-responsive">
-    <div class="container p-5 my-3 text-white text-center">
-        <a href="crearProducto.html"><button class="btn" style="background-color: #F6951B">Crear producto</button></a>
-        <a href="productosAdministrador.html"><button class="btn" style="background-color: #F6951B">Ver producto</button></a>
-        <a href="administrador.html"><button class="btn" style="background-color: #F6951B">Volver</button></a>
-    </div>    
-      <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Categoria</th>
-          <th>Frio</th>
-          <th>Unidades</th>
-          <th>Precio/unidad</th>
-          <th>Descripción de producto</th>
-          <th> </th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let producto of productos; let i = index">
-          <td>
-            {{ producto.IDProducto }}
-          </td>
-          <td>
-            {{ producto.NombreProducto }}
-          </td>
-          <td>
-            {{ producto.Frio }}
-          </td>
-          <td>
-            {{ producto.Categoria }}
-          </td>
-          <td>
-            {{ producto.UnidadProducto}}
-          </td>
-          <td>
-            {{ producto.PrecioProducto}}
-          </td>
-          <td>
-            {{ producto.DescripcionProducto}}
-          </td>
-          <td>
-            {{ producto.DescripcionProducto}}
-          </td>
-          <td>
-            <button type="button" name="button" class="btn btn-warning">Editar</button>
+  <div class="container p-5 my-3 text-white text-center flex-row">
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCrearProducto']">
+        Crear nuevo producto
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminProducto']">
+        Ver productos
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Frio</th>
+        <th>Unidades</th>
+        <th>Precio/unidad</th>
+        <th>Descripción de producto</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos; let i = index">
+        <td>
+          {{ producto.IDProducto }}
         </td>
         <td>
-            <button type="button" name="button" class="btn btn-danger">Borrar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          {{ producto.NombreProducto }}
+        </td>
+        <td>
+          {{ producto.Frio }}
+        </td>
+        <td>
+          {{ producto.Categoria }}
+        </td>
+        <td>
+          {{ producto.UnidadProducto}}
+        </td>
+        <td>
+          {{ producto.PrecioProducto}}
+        </td>
+        <td>
+          {{ producto.DescripcionProducto}}
+        </td>
+        <td>
+          <button type="button" name="button" class="btn btn-warning">Editar</button>
+        </td>
+        <td>
+          <button type="button" name="button" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>CafeGo - Disfruta de tu tiempo.</p>
   </div>
+</footer>
