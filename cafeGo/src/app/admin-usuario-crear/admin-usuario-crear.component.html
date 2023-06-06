@@ -1,0 +1,104 @@
+<app-menu-navegacion></app-menu-navegacion>
+
+<div class="container table-responsive">
+    <div class="container p-5 my-3 text-white text-center flex-row">
+      <div style="display: inline-block;">
+        <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCrearUsuario']">
+          Crear nuevo usuario
+        </button>
+      </div>
+      <div style="display: inline-block;">
+        <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminUsuario']">
+          Ver usuarios
+        </button>
+      </div>
+      <div style="display: inline-block;">
+        <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+          Volver
+        </button>
+      </div>
+    </div>
+
+    <!-- 
+************************************************
+FORMULARIO DE REGRISTRO DE USUARIO 
+************************************************
+-->
+<div>
+    <p *ngIf="registroExitoso == false"> No se ha podido realizar el registro</p>
+  </div>
+  
+      <div class="row">
+        <div class="col-lg-4 col-md-3 col-md-3"></div>
+        <!--FORMULARIO PARA DATOS-->
+        <form class="was-validated form col-lg-4 col-md-6 col-sm-12 bg-white" action="" #Formulario="ngForm">
+          <h2 class="titulo">Registrarse</h2>
+          <div class="mb-3 mt-3">
+  
+            <!--CORREO ELECTRONICO-->
+            <label for="email" class="form-label">Tu direccion de correo electronico</label>
+            <input type="text" class="form-control" id="email"name="email" placeholder="Introduzca usuario" required
+              pattern=".+@educamadrid.es"  [(ngModel)]="registroForm.email" />
+            <div class="invalid-feedback">
+              Introduzca un correo electronico electronico valido.
+            </div>
+            <div class="valid-feedback">Correcto</div>
+          </div>
+  
+          <!--NOMBRE USUARIO-->
+          <div>
+            <label for="nombre" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" id="nombre" name ="nombre" placeholder="Introduzca usuario" required
+              pattern="[a-zA-Z]{5,20}" [(ngModel)]="registroForm.nombre"/>
+            <div class="invalid-feedback">
+              Introduzca un usuario con solo letras mayusculas y/o minusculas.
+            </div>
+            <div class="valid-feedback">Correcto</div>
+          </div>
+  
+          <!--CONTRASEÑA USUARIO-->
+          <div class="mb-3 mt-3">
+            <label for="password" class="form-label">password</label>
+            <input type="password" class="form-control" id="password" name = "password" placeholder="Introduzca password" required
+              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.password" />
+            <div class="invalid-feedback">
+              Introduzca una contraseña alfanumerica de 8 a 20 caracteres.
+            </div>
+            <div class="valid-feedback">Correcto</div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="passwordRepeat" class="form-label">Repita la contraseña</label>
+            <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Introduzca contraseña" required
+              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.passwordRepeat" />
+            <div class="invalid-feedback">
+              Introduzca una contraseña alfanumerica de 8 a 20 caracteres.
+            </div>
+            <div class="valid-feedback">Correcto</div>
+          </div>
+          <p>
+            Al continuar, aceptas nuestras
+            <span class="text-success">
+              <a href="" style="color: #F6951B">condiciones de servicio.</a>
+            </span>
+          </p>
+          <button (click) ="registrarse(Formulario)" class="btn" style="background-color: #F6951B">
+            Crear cuenta
+          </button>
+        </form>
+      </div>
+  
+    
+
+      <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>

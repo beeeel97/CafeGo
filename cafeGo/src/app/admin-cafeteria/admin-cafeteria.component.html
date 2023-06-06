@@ -1,0 +1,68 @@
+<app-menu-navegacion></app-menu-navegacion>
+
+<div class="container table-responsive">
+  <div class="container p-5 my-3 text-white text-center flex-row">
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCrearCafeteria']">
+        Crear nuevo cafeteria
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCafeteria']">
+        Ver cafeterias
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre cafeteria</th>
+        <th>Propietario</th>
+        <th>Dirección</th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cafeteria of cafeterias; let i = index">
+        <td>
+          {{ cafeteria.IDCafeteria }}
+        </td>
+        <td>
+          {{ cafeteria.NombreCafeteria }}
+        </td>
+        <td>
+          {{ cafeteria.PropietarioCafeteria }}
+        </td>
+        <td>
+          {{ cafeteria.DireccionCafeteria }}
+        </td>
+       <td>
+          <button type="button" name="button" class="btn btn-warning">Editar</button>
+        </td>
+        <td>
+          <button type="button" name="button" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>CafeGo - Disfruta de tu tiempo.</p>
+  </div>
+</footer>
