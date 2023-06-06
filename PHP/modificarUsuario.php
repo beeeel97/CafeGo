@@ -13,7 +13,10 @@ header("Content-Type: application/json");
 
   $params = json_decode(file_get_contents('php://input'));
   // REALIZA LA QUERY A LA DB
-  $actualizacion = mysqli_query($conexion, "UPDATE usuarios SET CorreoUsuario = '" . $params->CorreoUsuario . "', PassUsuario = '" . $params->PassUsuario . "' WHERE NombreUsuario = '" . $params->NombreUsuario . "'");
+  $actualizacion = mysqli_query($conexion, "UPDATE usuarios SET CorreoUsuario = '" . $params->CorreoUsuario . "', PassUsuario = '" . $params->PassUsuario . "' WHERE IDUsuario = '" . $params->IDUsuario . "'");
+
+  // $actualizacion = mysqli_query($conexion, "UPDATE usuarios SET CorreoUsuario = 'SSSSSSSSmaribDSDSDSSel', PassUsuario = '22' WHERE IDUsuario = 2");
+
 
 
   

@@ -41,14 +41,20 @@ export class AdminUsuarioComponent {
 }
 
 borrarUsuario(idUsuario:number){
-  this.serviceUsuario.borrarUsuario(idUsuario);
+  this.serviceUsuario.borrarUsuario(idUsuario).subscribe(data => {
+    console.log(data);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/adminUsuario']);
+    });
+  });
+  
 }
 
 verUsuario(idUsuario: number) {
   const usuarioEncontrado = this.usuarios.find(usuario => usuario.IDUsuario === idUsuario);
 
   let navigationExtras: NavigationExtras= {
-    queryParams: { usuario: usuarioEncontrado }
+    queryParams: { usuario: JSON.stringify(usuarioEncontrado) }
   };
 
  console.log(navigationExtras);

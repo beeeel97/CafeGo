@@ -30,8 +30,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of usuarios; let i = index">
-          <td (click)= verUsuario(usuario.IDUsuario)>
+        <tr *ngFor="let usuario of usuarios; let i = index" (click)= verUsuario(usuario.IDUsuario)>
+          <td >
             {{ usuario.IDUsuario }}
           </td>
           <td>
@@ -49,6 +49,12 @@
         </tr>
       </tbody>
     </table>
+
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
   </div>
       <!-- 
 ************************************************

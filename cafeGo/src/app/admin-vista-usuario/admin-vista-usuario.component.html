@@ -21,7 +21,7 @@
                                 <h5>Nombre</h5>
                             </label>
                             <input type="text" class="form-control" name="nombre" id="nombre"  [(ngModel)]="modificarForm.nombre" 
-                                placeholder="{{ usuario?.NombreUsuario}}">
+                                placeholder="{{ usuario?.NombreUsuario}}" value="{{ usuario?.NombreUsuario}}">
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                                 <h5>Apellidos</h5>
                             </label>
                             <input type="text" class="form-control" name="apellidos" id="apellidos"
-                               [(ngModel)]="modificarForm.apellido" placeholder="{{ usuario?.NombreUsuario}}">
+                               [(ngModel)]="modificarForm.apellido" placeholder="{{ usuario?.NombreUsuario}}" value="{{ usuario?.NombreUsuario}}">
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@
                                 <h5>Email</h5>
                             </label>
                             <input type="email" class="form-control" name="email" id="email"  [(ngModel)]="modificarForm.email" 
-                                placeholder="{{ usuario?.CorreoUsuario}}">
+                                placeholder="{{ usuario?.CorreoUsuario}}" value="{{ usuario?.CorreoUsuario}}">
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                             <label for="password">
                                 <h5>Contraseña</h5>
                             </label>
-                            <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="modificarForm.password" >
+                            <input type="password" class="form-control" name="password" id="password"    placeholder="********"  value="{{ usuario?.PassUsuario}}" [(ngModel)]="modificarForm.password" >
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
                             <label for="password2">
                                 <h5>Verifica la contraseña</h5>
                             </label>
-                            <input type="password" class="form-control" name="passwordRepeat" id="password2" [(ngModel)]="modificarForm.passwordRepeat">
+                            <input type="password" class="form-control" name="passwordRepeat" id="password2"  placeholder="********"  value="{{ usuario?.PassUsuario}}" [(ngModel)]="modificarForm.passwordRepeat">
                         </div>
                     </div>
 
@@ -72,20 +72,22 @@
                     <div class="form-group mt-3">
                         <div class="col-xs-12">
                             <br>
-                            <button class="btn btn-success" type="submit" (click)=modificarDatos(Formulario)>Guardar</button>
+                            <button class="btn btn-success" type="submit" (click)="usuario?.IDUsuario !== undefined && modificarDatos(Formulario, usuario!.IDUsuario)">Guardar</button>
                         </div>
+                    </div>
+
+                    <div *ngIf="respuestaBBDD=='true'">
+                        {{feedbackInsercion}}
+        
                     </div>
                          <!-- DIV BOTON BORRAR EL USUARIO-->
                          <div class="form-group mt-3">
                             <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-success" type="submit" (click)="usuario?.IDUsuario !== undefined && borrarUsuario(usuario!.IDUsuario)">Borrar</button>
+                                <button class="btn btn-danger" type="submit" (click)="usuario?.IDUsuario !== undefined && borrarUsuario(usuario!.IDUsuario)">Borrar</button>
                             </div>
                         </div>
-                    <div *ngIf="respuestaBBDD==true">
-                        {{feedbackInsercion}}
-        
-                    </div>
+                  
                 </form>
             </div>
         </div>
