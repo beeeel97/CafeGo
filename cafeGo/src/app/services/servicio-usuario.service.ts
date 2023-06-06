@@ -31,6 +31,7 @@ export class UsuarioService {
   }
   
   modificarUsuario(usuario: Usuario){
+    console.log("en servicio",usuario)
     return this.http.post(`${this.URL}modificarUsuario.php`,  JSON.stringify(usuario));
   }
 

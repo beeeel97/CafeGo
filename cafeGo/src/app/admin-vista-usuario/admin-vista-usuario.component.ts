@@ -11,75 +11,103 @@ import { UsuarioService } from '../services/servicio-usuario.service';
 })
 export class AdminVistaUsuarioComponent {
 
-  usuario: Usuario | undefined;
+  usuario: Usuario | undefined=undefined;
 
   //objeto con los atributos que son los campos del formulario
   modificarForm = {
-    nombre: "",
-    apellido: "",
-    email: "",
-    password: "",
-    passwordRepeat: ""
+    nombre: this.usuario?.NombreUsuario,
+    apellido: this.usuario?.NombreUsuario,
+    email: this.usuario?.CorreoUsuario,
+    password: this.usuario?.PassUsuario,
+    passwordRepeat: this.usuario?.PassUsuario
   }
 
   //Usuario para guardar en la BBDD
 
   usuarioBBDD!: Usuario;
-  respuestaBBDD!: boolean;
+  respuestaBBDD!: string;
   feedbackInsercion:String ="";
 
 
   constructor(private router:Router, private route:ActivatedRoute, private serviceUsuario: UsuarioService) {
     this.getUsuario();
+    console.log(this.usuario);
   }
 
 
   getUsuario() {
     this.route.queryParams.subscribe(params => {
-      this.usuario = params['usuario'];
+      this.usuario = JSON.parse(params['usuario']);
     });
 
    
   }
 
-  modificarDatos(form: NgForm) {
+  modificarDatos(form: NgForm, idUsuario:number ) {
 
-    const email = form.value.email;
-    const nombre = form.value.nombre;
-    const apellido = form.value.apellido;
-    const password = form.value.password;
-    const passwordRepeat = form.value.passwordRepeat;
 
-    //comprobar que ambas contraseñas sea iguales
-
-    if (password == passwordRepeat) {
-      this.usuarioBBDD.NombreUsuario = nombre;
-      this.usuarioBBDD.CorreoUsuario = email;
-      this.usuarioBBDD.PassUsuario = password;
-    }else{
-      //poner alguna varible para dar feedback al usuario
+    let email = form.value.email;
+    if (email == undefined){
+      email = this.usuario?.CorreoUsuario
+    }
+    let nombre = form.value.nombre;
+    if (nombre == undefined){
+      nombre = this.usuario?.NombreUsuario
+    }
+ 
+    let apellido = form.value.apellido;
+    if (apellido == undefined){
+      apellido = this.usuario?.NombreUsuario
+    }
+    let password = form.value.password;
+    if (password == undefined){
+      password = this.usuario?.PassUsuario
+    }
+    let passwordRepeat = form.value.passwordRepeat;
+    if (passwordRepeat == undefined){
+      passwordRepeat = this.usuario?.PassUsuario
     }
 
-    //llamar al servicio para insertar en la base de datos
+    //comprobar que ambas contraseñas sea iguales)
+    if (password == passwordRepeat) {
+      if (this.usuarioBBDD) {
+        // Si this.usuarioBBDD ya tiene un valor asignado
+        this.usuarioBBDD.NombreUsuario = nombre;
+        this.usuarioBBDD.CorreoUsuario = email;
+        this.usuarioBBDD.PassUsuario = password;
+      } else {
+        // Si this.usuarioBBDD no tiene un valor asignado, crea un nuevo objeto Usuario
+        this.usuarioBBDD = {
+          IDUsuario:idUsuario,
+          NombreUsuario: nombre,
+          CorreoUsuario: email,
+          PassUsuario: password
+        };
+      }
+    } 
 
     this.modificarUsuario();
 
   }
 
   modificarUsuario(){
-    this.serviceUsuario.modificarUsuario(this.usuarioBBDD).subscribe(data=> data=this.respuestaBBDD)
+    this.serviceUsuario.modificarUsuario(this.usuarioBBDD).subscribe(data=> {
 
-    if(this.respuestaBBDD==true){
+      this.respuestaBBDD = data as string;
+      if(data=="true"){
       this.feedbackInsercion = "Usuario modificado correctamente"
 
     }else{
       this.feedbackInsercion = "El usuario no ha podido modificarse"
     }
+    })
+    
   }
 
   borrarUsuario(idUsuario:number){
-    console.log("llega el id del usuario al borrar el usuario desde vista usuario?",idUsuario)
-    this.serviceUsuario.borrarUsuario(idUsuario);
+    this.serviceUsuario.borrarUsuario(idUsuario).subscribe(data=> console.log(data));
+    this.router.navigate(['/adminUsuario'])
+
   }
 
 
