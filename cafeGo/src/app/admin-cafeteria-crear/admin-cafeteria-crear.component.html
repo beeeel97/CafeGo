@@ -25,7 +25,7 @@ FORMULARIO DE REGRISTRO DE USUARIO
 ************************************************
 -->
 <div>
-    <p *ngIf="registroExitoso == false"> No se ha podido realizar el registro</p>
+    <!-- <p *ngIf="registroExitoso == false"> No se ha podido realizar el registro</p> -->
   </div>
   
       <div class="row">
@@ -37,8 +37,10 @@ FORMULARIO DE REGRISTRO DE USUARIO
   
             <!--CORREO ELECTRONICO-->
             <label for="email" class="form-label">Tu direccion de correo electronico</label>
-            <input type="text" class="form-control" id="email"name="email" placeholder="Introduzca usuario" required
-              pattern=".+@educamadrid.es"  [(ngModel)]="registroForm.email" />
+            <!-- <input type="text" class="form-control" id="email"name="email" placeholder="Introduzca usuario" required
+              pattern=".+@educamadrid.es"  [(ngModel)]="registroForm.email" /> -->
+              <input type="text" class="form-control" id="email"name="email" placeholder="Introduzca usuario" required
+              pattern=".+@educamadrid.es" />
             <div class="invalid-feedback">
               Introduzca un correo electronico electronico valido.
             </div>
@@ -48,8 +50,10 @@ FORMULARIO DE REGRISTRO DE USUARIO
           <!--NOMBRE USUARIO-->
           <div>
             <label for="nombre" class="form-label">Nombre de usuario</label>
-            <input type="text" class="form-control" id="nombre" name ="nombre" placeholder="Introduzca usuario" required
-              pattern="[a-zA-Z]{5,20}" [(ngModel)]="registroForm.nombre"/>
+            <!-- <input type="text" class="form-control" id="nombre" name ="nombre" placeholder="Introduzca usuario" required
+              pattern="[a-zA-Z]{5,20}" [(ngModel)]="registroForm.nombre"/> -->
+              <input type="text" class="form-control" id="nombre" name ="nombre" placeholder="Introduzca usuario" required
+              pattern="[a-zA-Z]{5,20}" />
             <div class="invalid-feedback">
               Introduzca un usuario con solo letras mayusculas y/o minusculas.
             </div>
@@ -59,8 +63,10 @@ FORMULARIO DE REGRISTRO DE USUARIO
           <!--CONTRASEÑA USUARIO-->
           <div class="mb-3 mt-3">
             <label for="password" class="form-label">password</label>
-            <input type="password" class="form-control" id="password" name = "password" placeholder="Introduzca password" required
-              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.password" />
+            <!-- <input type="password" class="form-control" id="password" name = "password" placeholder="Introduzca password" required
+              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.password" /> -->
+              <input type="password" class="form-control" id="password" name = "password" placeholder="Introduzca password" required
+              pattern="[a-zA-Z0-9]{8,20}" />
             <div class="invalid-feedback">
               Introduzca una contraseña alfanumerica de 8 a 20 caracteres.
             </div>
@@ -69,8 +75,10 @@ FORMULARIO DE REGRISTRO DE USUARIO
   
           <div class="mb-3">
             <label for="passwordRepeat" class="form-label">Repita la contraseña</label>
-            <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Introduzca contraseña" required
-              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.passwordRepeat" />
+            <!-- <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Introduzca contraseña" required
+              pattern="[a-zA-Z0-9]{8,20}" [(ngModel)]="registroForm.passwordRepeat" /> -->
+              <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" placeholder="Introduzca contraseña" required
+              pattern="[a-zA-Z0-9]{8,20}"  />
             <div class="invalid-feedback">
               Introduzca una contraseña alfanumerica de 8 a 20 caracteres.
             </div>
@@ -82,8 +90,10 @@ FORMULARIO DE REGRISTRO DE USUARIO
               <a href="" style="color: #F6951B">condiciones de servicio.</a>
             </span>
           </p>
-          <button (click) ="registrarse(Formulario)" class="btn" style="background-color: #F6951B">
-            Crear cuenta
+          <!-- <button (click) ="registrarse(Formulario)" class="btn" style="background-color: #F6951B"> -->
+
+            <button  class="btn" style="background-color: #F6951B">
+              Crear cuenta
           </button>
         </form>
       </div>
