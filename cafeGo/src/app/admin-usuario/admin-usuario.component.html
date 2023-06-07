@@ -29,6 +29,9 @@
             {{ usuario.PassUsuario }}
           </td>
           <td>
+            <button type="button" name="button" class="btn btn-warning" (click)= verUsuario(usuario.IDUsuario)>Editar</button>
+          </td>
+          <td>
             <button type="button" name="button" class="btn btn-danger" (click)=borrarUsuario(usuario.IDUsuario)>Borrar</button>
           </td>
         </tr>
