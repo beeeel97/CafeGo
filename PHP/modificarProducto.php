@@ -13,9 +13,9 @@ header("Content-Type: application/json");
 
   $params = json_decode(file_get_contents('php://input'));
   // REALIZA LA QUERY A LA DB
-  $actualizacion = mysqli_query($conexion, "UPDATE usuarios SET NombreUsuario = '" . $params->NombreUsuario . "',CorreoUsuario = '" . $params->CorreoUsuario . "', PassUsuario = '" . $params->PassUsuario . "' WHERE IDUsuario = '" . $params->IDUsuario . "'");
 
-  // $actualizacion = mysqli_query($conexion, "UPDATE usuarios SET CorreoUsuario = 'SSSSSSSSmaribDSDSDSSel', PassUsuario = '22' WHERE IDUsuario = 2");
+  $actualizacion = mysqli_query($conexion, "UPDATE productos SET NombreProducto = '" . $params->NombreProducto . "', Categoria = '" . $params->Categoria . "', Frio = " . $params->Frio . ", UnidadProducto = '" . $params->UnidadProducto . "', PrecioProducto = " . $params->PrecioProducto . ", DescripcionProducto = '" . $params->DescripcionProducto . "', LinkImagen = '" . $params->LinkImagen . "' WHERE IDProducto = " . $params->IDProducto);
+
 
 
 

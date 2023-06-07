@@ -32,7 +32,7 @@ FORMULARIO DE REGRISTRO DE USUARIO
         <div class="col-lg-4 col-md-3 col-md-3"></div>
         <!--FORMULARIO PARA DATOS-->
         <form class="was-validated form col-lg-4 col-md-6 col-sm-12 bg-white" action="" #Formulario="ngForm">
-          <h2 class="titulo">Registrarse</h2>
+          <h2 class="titulo">Registrar Usuario</h2>
           <div class="mb-3 mt-3">
   
             <!--CORREO ELECTRONICO-->
@@ -85,6 +85,11 @@ FORMULARIO DE REGRISTRO DE USUARIO
           <button (click) ="registrarse(Formulario)" class="btn" style="background-color: #F6951B">
             Crear cuenta
           </button>
+          <div *ngIf="passwordIgual==false">
+            {{feedback}}
+
+        </div>
+          
         </form>
       </div>
   

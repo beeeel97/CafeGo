@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let producto of productos; let i = index">
+      <tr *ngFor="let producto of productos; let i = index" (click)="verProducto(producto.IDProducto)">
         <td>
           {{ producto.IDProducto }}
         </td>
@@ -57,10 +57,10 @@
           {{ producto.DescripcionProducto}}
         </td>
         <td>
-          <button type="button" name="button" class="btn btn-warning">Editar</button>
+          <button type="button" name="button" class="btn btn-warning" (click)="verProducto(producto.IDProducto)">Editar</button>
         </td>
         <td>
-          <button type="button" name="button" class="btn btn-danger">Borrar</button>
+          <button type="button" name="button" class="btn btn-danger" (click)="borrarProducto(producto.IDProducto)">Borrar</button>
         </td>
       </tr>
     </tbody>

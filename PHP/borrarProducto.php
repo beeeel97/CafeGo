@@ -11,7 +11,7 @@ header("Content-Type: application/json");
 
   $params = json_decode(file_get_contents('php://input'));
   // REALIZA LA QUERY A LA DB
-  $eliminacion = mysqli_query($conexion, "DELETE FROM usuarios WHERE idUsuario = " . $params->idUsuario);
+  $eliminacion = mysqli_query($conexion, "DELETE FROM productos WHERE IDProducto = " . $params->idProducto);
 
 
 

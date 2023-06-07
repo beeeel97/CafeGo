@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from '../models/Producto';
 import { ServiceProducto } from '../services/servicio-producto.service';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-productos',
@@ -9,7 +10,7 @@ import { ServiceProducto } from '../services/servicio-producto.service';
 })
 export class AdminProductosComponent {
 
-  constructor(private serviceProducto: ServiceProducto){
+  constructor(private serviceProducto: ServiceProducto, private router:Router, private route:ActivatedRoute){
 
     this.getProducts();  }
 
@@ -34,5 +35,30 @@ export class AdminProductosComponent {
       ));
     });
   }
+
+
+
+borrarProducto(idProducto:number){
+  this.serviceProducto.borrarProducto(idProducto).subscribe(data => {
+    console.log(data);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/adminProducto']);
+    });
+  });
+  
+}
+
+verProducto(idProducto: number) {
+  const productoEncontrado = this.productos.find(producto => producto.IDProducto === idProducto);
+
+  let navigationExtras: NavigationExtras= {
+    queryParams: { producto: JSON.stringify(productoEncontrado) }
+  };
+
+ console.log(navigationExtras);
+
+  this.router.navigate(['/producto'], navigationExtras)
+}
+
 
 }

@@ -14,6 +14,8 @@ export class AdminUsuarioCrearComponent {
 }
 
 registroExitoso:boolean = true; //true o false si se ha podidio o no insertar el usuario
+feedback:string="";
+passwordIgual:boolean=true;
 
 //objeto con los atributos que son los campos del formulario. bananinbox/mgmodel
 registroForm={
@@ -29,31 +31,33 @@ registrarse(form:NgForm){
 
   const email=form.value.email;
   const password=form.value.password;
+  const passwordRepeat=form.value.passwordRepeat;
   const nombre=form.value.nombre;
 
-  // Crear un nuevo objeto de tipo Usuario
-  let usuario = new Usuario(0, nombre, email, password);
+  if(password==passwordRepeat){
+    let usuario = new Usuario(0, nombre, email, password);
 
   this.registrarUsuario(usuario);
-  this.navegarLogin();
+  this.router.navigate(['/adminUsuario']);
+  }else{
+    this.passwordIgual=false;
+
+    this.feedback = "Las contraseñas no coinciden"
+
+  }
+
 }
 
 registrarUsuario(usuario:Usuario) {
+  console.log(usuario)
   this.usuariosServicio.registrarUsuario(usuario).subscribe(data =>{
+  
     this.registroExitoso = data;
-    console.log("que me sacass", this.registroExitoso); //true o false (mensaje de feedback al usuario si no ha podidio registrarse)
+
   } )
 }
 
 
-
-navegarLogin(){
-
-  if(this.registroExitoso==true){
-    this.router.navigate(['/login']);
-  }
-
-}
 
 
 

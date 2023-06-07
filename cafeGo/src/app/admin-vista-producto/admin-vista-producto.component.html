@@ -1,0 +1,192 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="margin-top: 50px;">
+            <div class="text-center">
+                <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
+                    alt="avatar">
+                <h6>Sube una foto</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div>
+            <br>
+        </div>
+
+        <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
+        <div class="col-sm-8" style="margin-top: 50px;">
+            <div class="tab-pane active" id="home">
+                <form class="form" action="##" method="post" id="producto" #Formulario="ngForm">
+                    <div class="form-group mt-3">
+                      <!-- DIV NOMBRE -->
+                      <div class="col-xs-6">
+                        <label for="nombre">
+                          <h5>Nombre</h5>
+                        </label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="modificarForm.nombre"
+                          placeholder="{{ producto?.NombreProducto }}" value="{{ producto?.NombreProducto }}">
+                      </div>
+                    </div>
+                  
+                <!-- DIV CATEGORÍA -->
+<div class="form-group mt-3">
+    <div class="col-xs-6">
+      <label for="categoria">
+        <h5>Categoría</h5>
+      </label>
+      <select class="form-control" name="categoria" id="categoria" [(ngModel)]="modificarForm.categoria">
+        <option value="1" [selected]="producto?.Categoria == 1">Bebida Fría</option>
+        <option value="2" [selected]="producto?.Categoria == 2">Bebida Caliente</option>
+        <option value="3" [selected]="producto?.Categoria == 3">Snack</option>
+        <option value="4" [selected]="producto?.Categoria == 4">Bocadillo</option>
+        <option value="5" [selected]="producto?.Categoria == 5">Bollería</option>
+
+
+      </select>
+    </div>
+  </div>
+
+  <!-- <div class="form-group mt-3">
+    <div class="col-xs-6">
+      <label for="categoria">
+        <h5>Categoría</h5>
+      </label>
+      <select class="form-control" name="categoria" id="categoria" [(ngModel)]="modificarForm.categoria">
+        <option value="1" [selected]="producto?.Categoria == 1">Bebida Fría</option>
+        <option value="2" [selected]="producto?.Categoria == 2">Bebida Caliente</option>
+        <option value="3" [selected]="producto?.Categoria == 3">Snack</option>
+        <option value="4" [selected]="producto?.Categoria == 4">Bocadillo</option>
+        <option value="5" [selected]="producto?.Categoria == 5">Bollería</option>
+
+
+      </select>
+    </div>
+  </div> -->
+
+  
+
+  <div class="form-group mt-3">
+    <div class="col-xs-6">
+      <label for="categoria">
+        <h5>Categoría</h5>
+      </label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="categoria" id="bebidaFria" value="1" [(ngModel)]="modificarForm.categoria" [checked]="producto?.Categoria === 1">
+        <label class="form-check-label" for="bebidaFria">
+          Bebida Fría
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="categoria" id="bebidaCaliente" value="2" [(ngModel)]="modificarForm.categoria" [checked]="producto?.Categoria === 2">
+        <label class="form-check-label" for="bebidaCaliente">
+          Bebida Caliente
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="categoria" id="snack" value="3" [(ngModel)]="modificarForm.categoria" [checked]="producto?.Categoria === 3">
+        <label class="form-check-label" for="snack">
+          Snack
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="categoria" id="bocadillo" value="4" [(ngModel)]="modificarForm.categoria" [checked]="producto?.Categoria === 4">
+        <label class="form-check-label" for="bocadillo">
+          Bocadillo
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="categoria" id="bolleria" value="5" [(ngModel)]="modificarForm.categoria" [checked]="producto?.Categoria === 5">
+        <label class="form-check-label" for="bolleria">
+          Bollería
+        </label>
+      </div>
+    </div>
+  </div>
+  
+                  
+  <div class="form-group mt-3">
+    <div class="col-xs-6">
+      <label for="frio">
+        <h5>¿Requiere refrigeración?</h5>
+      </label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="frio" id="caliente" value="0" [(ngModel)]="modificarForm.frio" [checked]="producto?.Frio === 0">
+        <label class="form-check-label" for="caliente">
+          Caliente
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="frio" id="frio" value="1" [(ngModel)]="modificarForm.frio" [checked]="producto?.Frio === 1">
+        <label class="form-check-label" for="frio">
+          Frío
+        </label>
+      </div>
+    </div>
+  </div>
+  
+                  
+                    <!-- DIV UNIDAD -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-6">
+                        <label for="unidad">
+                          <h5>Unidad</h5>
+                        </label>
+                        <input type="text" class="form-control" name="unidad" id="unidad" [(ngModel)]="modificarForm.unidad"
+                          placeholder="{{ producto?.UnidadProducto }}" value="{{ producto?.UnidadProducto }}">
+                      </div>
+                    </div>
+                  
+                    <!-- DIV PRECIO -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-6">
+                        <label for="precio">
+                          <h5>Precio</h5>
+                        </label>
+                        <input type="number" class="form-control" name="precio" id="precio" [(ngModel)]="modificarForm.precio"
+                          placeholder="{{ producto?.PrecioProducto }}" value="{{ producto?.PrecioProducto }}">
+                      </div>
+                    </div>
+                  
+                    <!-- DIV DESCRIPCIÓN -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-6">
+                        <label for="descripcion">
+                          <h5>Descripción</h5>
+                        </label>
+                        <textarea class="form-control" name="descripcion" id="descripcion" rows="4"
+                          [(ngModel)]="modificarForm.descripcion" placeholder="{{ producto?.DescripcionProducto }}">{{ producto?.DescripcionProducto }}</textarea>
+                      </div>
+                    </div>
+                  
+                    <!-- DIV LINK DE LA IMAGEN -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-6">
+                        <label for="linkImagen">
+                          <h5>Link de la imagen</h5>
+                        </label>
+                        <input type="text" class="form-control" name="linkImagen" id="linkImagen"
+                          [(ngModel)]="modificarForm.linkImagen" placeholder="{{ producto?.LinkImagen }}" value="{{ producto?.LinkImagen }}">
+                      </div>
+                    </div>
+                  
+                    <!-- DIV BOTON GUARDAR LOS NUEVOS DATOS -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-success" type="submit" (click)="producto?.IDProducto !== undefined && modificarDatos(Formulario, producto!.IDProducto)">Guardar</button>
+                      </div>
+                    </div>
+                  
+                    <div *ngIf="respuestaBBDD=='true'">
+                      {{ feedbackInsercion }}
+                    </div>
+                  
+                    <!-- DIV BOTON BORRAR EL PRODUCTO -->
+                    <div class="form-group mt-3">
+                      <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-danger" type="submit" (click)="producto?.IDProducto !== undefined && borrarProducto(producto!.IDProducto)">Borrar Producto</button>
+                      </div>
+                    </div>
+                  </form>
+                  
+            </div>
+        </div>
+    </div>
