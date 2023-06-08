@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CarritoService } from '../services/carrito.service';
 import { LocalStorageService } from '../services/local-storage.service';
+import { UsuarioService } from '../services/servicio-usuario.service';
+import { Usuario } from '../models/Usuario';
 
 @Component({
   selector: 'app-menu-navegacion',
@@ -11,12 +13,15 @@ import { LocalStorageService } from '../services/local-storage.service';
 export class MenuNavegacionComponent {
 
 
-  constructor(private router:Router, private route:ActivatedRoute, private serviceCarrito: CarritoService, private localStorageService: LocalStorageService) {
+  constructor(private router:Router, private route:ActivatedRoute,private serviceUsuario:UsuarioService, private serviceCarrito: CarritoService, private localStorageService: LocalStorageService) {
    console.log("dddd",this.IDUsuario)
+   this.mostrarUsuario();
    }
 
 
    IDUsuario:number =this.localStorageService.getItem("usuario");
+   usuario: Usuario | undefined;
+   nombreUsuario!:string;
 
    categoriaNavegacion: string ="";
 
@@ -77,6 +82,24 @@ export class MenuNavegacionComponent {
       this.localStorageService.removeItem("carrito");
       this.router.navigate(['/login']);
 
+    }
+
+    mostrarUsuario() {
+      this.serviceUsuario.getUsuarios().subscribe((data: any) => {
+        const dataArray = Object.values(data);
+  
+        this.usuario = dataArray
+          .map((objeto: any) => new Usuario(
+            Number(objeto.IDUsuario),
+            objeto.NombreUsuario,
+            objeto.CorreoUsuario,
+            objeto.PassUsuario
+          ))
+          .find((usuario: Usuario) => usuario.IDUsuario === Number(this.IDUsuario));
+
+          this.nombreUsuario = this.usuario?.NombreUsuario ?? '';
+
+      });
     }
 
 }

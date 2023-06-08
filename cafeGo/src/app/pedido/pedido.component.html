@@ -37,19 +37,15 @@
         </table>
 
         <div class="d-flex justify-content-center mt-4">
-            <button class="btn bg-orange">Pagar</button>
+            <button class="btn bg-orange" (click)="pagar()">Pagar</button>
          </div>
+
+         <!-- <div class="d-flex justify-content-center mt-4" *ngIf="pedidoInsertado">
+            <p>{{ feedbackUsuario }}</p>
+            <button class="btn bg-orange" routerLink="productos">Volver</button>
+
+         </div> -->
 </div>
 </main>
-        <!-- 
-************************************************
-    FOOTER 
-************************************************
 
- -->
-
- <footer class="footer">
-    <div class="container text-center">
-      <p>CafeGo - Disfruta de tu tiempo.</p>
-    </div>
-  </footer>
+<app-footer></app-footer>

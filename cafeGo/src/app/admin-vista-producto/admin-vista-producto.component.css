@@ -33,14 +33,3 @@ body {
     color: white;
 }
 
-.footer {
-    background-color: #F6951B;
-    height: 2cm;
-    align-items: center;
-    color: white;
-    margin-top: 30px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}

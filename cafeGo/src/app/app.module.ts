@@ -27,6 +27,7 @@ import { AdminUsuarioCrearComponent } from './admin-usuario-crear/admin-usuario-
 import { AdminCafeteriaCrearComponent } from './admin-cafeteria-crear/admin-cafeteria-crear.component';
 import { AdminCrearProductoComponent } from './admin-crear-producto/admin-crear-producto.component';
 import { AdminVistaProductoComponent } from './admin-vista-producto/admin-vista-producto.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -73,6 +74,7 @@ const appRoutes:Routes=[
     AdminCafeteriaCrearComponent,
     AdminCrearProductoComponent,
     AdminVistaProductoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

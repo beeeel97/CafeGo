@@ -58,6 +58,10 @@
    <!--CARRITO Y PERFIL-->
    <div class="nav-end d-flex justify-content-center align-items-center">
 
+<div >
+      <p>¡Hola {{nombreUsuario}}!</p>
+  </div>
+
     <div *ngIf="IDUsuario == 5">
       <a [routerLink]="['/administrador', IDUsuario]">
           <img class="nav-link btn btn-outline-light btn-floating m-1" src="./assets/images/tuerca.png" alt="" width="45" height="" />
@@ -81,7 +85,7 @@
 
       <!-- cerrar sesion -->
       <div>
-        <button class="nav-link active bg-orange border-0" value="CerrarSesion" (click)="cerrarSesion()">Cerrar Sesion</button>
+        <button class="nav-link active bg-light border-0" value="CerrarSesion" (click)="cerrarSesion()">Cerrar Sesion</button>
       </div>
 </div>
 </nav>
