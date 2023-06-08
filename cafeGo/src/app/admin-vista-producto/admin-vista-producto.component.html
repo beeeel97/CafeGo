@@ -1,18 +1,10 @@
+<app-menu-navegacion></app-menu-navegacion>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4" style="margin-top: 50px;">
-            <div class="text-center">
-                <img src="./cafeGo/src/app/images/avatar.png" class="avatar img-circle img-thumbnail"
-                    alt="avatar">
-                <h6>Sube una foto</h6>
-                <input type="file" class="text-center center-block file-upload">
-            </div>
-            <br>
-        </div>
 
         <!-- DIV DE FORMULARIO DONDE TRAEMOS LOS DATOS DE LA BBDD Y LO VISUALIZAMOS EN EL PLACEHOLDER DE CADA UNO DE LOS INPUT-->
         <div class="col-sm-8" style="margin-top: 50px;">
             <div class="tab-pane active" id="home">
+              <h3>Modificar Producto</h3>
                 <form class="form" action="##" method="post" id="producto" #Formulario="ngForm">
                     <div class="form-group mt-3">
                       <!-- DIV NOMBRE -->
@@ -37,8 +29,6 @@
         <option value="3" [selected]="producto?.Categoria == 3">Snack</option>
         <option value="4" [selected]="producto?.Categoria == 4">Bocadillo</option>
         <option value="5" [selected]="producto?.Categoria == 5">Bollería</option>
-
-
       </select>
     </div>
   </div>

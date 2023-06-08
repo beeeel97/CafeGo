@@ -45,7 +45,8 @@ const appRoutes:Routes=[
   {path:"usuario", component:AdminVistaUsuarioComponent},
   {path:"adminCrearUsuario", component:AdminUsuarioCrearComponent},
   {path:"adminCrearCafeteria", component:AdminCafeteriaCrearComponent},
-  {path:"producto", component:AdminVistaProductoComponent}
+  {path:"producto", component:AdminVistaProductoComponent},
+  {path:"adminCrearProducto", component:AdminCrearProductoComponent},
 
 ]
 

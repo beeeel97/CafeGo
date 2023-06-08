@@ -18,7 +18,7 @@ export class AdminVistaProductoComponent {
   //objeto con los atributos que son los campos del formulario
   modificarForm = {
     nombre: this.producto?.NombreProducto,
-    categoria: this.producto?.Categoria,
+    categoria: String(this.producto?.Categoria),
     frio: this.producto?.Frio,
     unidad: this.producto?.UnidadProducto,
     precio: this.producto?.PrecioProducto,

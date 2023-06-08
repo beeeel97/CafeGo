@@ -14,14 +14,14 @@ export class AdminCrearProductoComponent {
   constructor(private router:Router, private productoServicio: ServiceProducto){
   }
   
-  registroExitoso:boolean = true; //true o false si se ha podidio o no insertar el usuario
+  registroExitoso:boolean = true; //true o false si se ha podidio o no insertar el producto
   feedback:string="";
-  passwordIgual:boolean=true;
+
   
   //objeto con los atributos que son los campos del formulario. bananinbox/mgmodel
   registroForm={
     nombre: "",
-    categoria: 0,
+    categoria: "defecto",
     frio: 0,
     unidad: 0,
     precio: 0,
@@ -29,7 +29,7 @@ export class AdminCrearProductoComponent {
     linkImagen: ""
   }
   
-  registrarse(form:NgForm){
+  registrar(form:NgForm){
 
     const nombre = form.value.nombre;
     const categoria = form.value.categoria;
@@ -54,6 +54,7 @@ export class AdminCrearProductoComponent {
     this.productoServicio.registrarProducto(producto).subscribe(data =>{
     
       this.registroExitoso = data;
+      console.log(this.registroExitoso);
   
     } )
   }
