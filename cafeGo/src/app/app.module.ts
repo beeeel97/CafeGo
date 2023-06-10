@@ -28,7 +28,7 @@ import { AdminCafeteriaCrearComponent } from './admin-cafeteria-crear/admin-cafe
 import { AdminCrearProductoComponent } from './admin-crear-producto/admin-crear-producto.component';
 import { AdminVistaProductoComponent } from './admin-vista-producto/admin-vista-producto.component';
 import { FooterComponent } from './footer/footer.component';
-import { AdminVistaCafeteriaComponent } from './admin-vista-cafeteria/admin-vista-cafeteria.component';
+import { PasarelaPagoComponent } from './pasarela-pago/pasarela-pago.component';
 
 
 
@@ -49,6 +49,7 @@ const appRoutes:Routes=[
   {path:"adminCrearCafeteria", component:AdminCafeteriaCrearComponent},
   {path:"producto", component:AdminVistaProductoComponent},
   {path:"adminCrearProducto", component:AdminCrearProductoComponent},
+  {path:"pasarelaPago", component:PasarelaPagoComponent},
 
 ]
 
@@ -76,7 +77,7 @@ const appRoutes:Routes=[
     AdminCrearProductoComponent,
     AdminVistaProductoComponent,
     FooterComponent,
-    AdminVistaCafeteriaComponent,
+    PasarelaPagoComponent,
   ],
   imports: [
     BrowserModule,
