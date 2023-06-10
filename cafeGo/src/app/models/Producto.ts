@@ -9,7 +9,7 @@ export class Producto{
     PrecioProducto:number;
     DescripcionProducto:string;
     cantidad:number;
-   // urlImagen:string;
+    LinkImagen:string;
 
 
     constructor(
@@ -20,7 +20,7 @@ export class Producto{
         UnidadProducto: number,
         PrecioProducto: number,
         DescripcionProducto: string,
-    //    urlImagen:string
+        LinkImagen:string,
        cantidad:number
       ) {
         this.IDProducto = IDProducto;
@@ -31,7 +31,7 @@ export class Producto{
         this.PrecioProducto = PrecioProducto;
         this.DescripcionProducto = DescripcionProducto;
         this.cantidad = cantidad;
-     //  this.urlImagen = urlImagen;
+     this.LinkImagen = LinkImagen;
       }
     
 

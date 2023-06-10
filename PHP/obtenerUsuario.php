@@ -22,7 +22,7 @@ header("Content-Type: application/json");
   if ($numRegistros==1){
     $datos[] = mysqli_fetch_array($registros);
   }else{
-    $datos[]="no";
+    $datos[]="usarioNoRegistrado";
   }
 
   //print_r( $datos);

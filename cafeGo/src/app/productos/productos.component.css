@@ -53,3 +53,10 @@
     
 }
 
+.footer {
+    background-color: #F6951B;
+    height: 2cm;
+    align-items: center;
+    color: white;
+    margin-top: 30px;
+}

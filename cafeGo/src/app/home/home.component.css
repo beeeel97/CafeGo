@@ -41,8 +41,8 @@ body,
 }
 
 .circulo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background-color: #F6951B;
     display: flex;
@@ -50,8 +50,8 @@ body,
     align-items: center;
     margin-top: 50px;
     transition: all 0.3s ease-out;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 .circulo:hover {
@@ -64,4 +64,16 @@ body,
     text-decoration: none;
     font-weight: bold;
     align-content: center;
+}
+
+.footer {
+    background-color: #F6951B;
+    height: 2cm;
+    align-items: center;
+    color: white;
+    margin-top: 30px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

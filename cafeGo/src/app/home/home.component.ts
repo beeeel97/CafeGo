@@ -26,8 +26,7 @@ export class HomeComponent {
 
   obtenerCategorias(){
 
-    this.ServiceProducto
-    .obtenerCategoriasProd()
+    this.ServiceProducto.obtenerCategoriasProd()
     .subscribe((result) => {
         this.categorias = result;
     });

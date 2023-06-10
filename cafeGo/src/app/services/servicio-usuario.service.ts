@@ -26,5 +26,20 @@ export class UsuarioService {
 
   }
 
+  getUsuarios(){
+    return this.http.get(`${this.URL}obtenerTodosUsuario.php` );
+  }
+  
+  modificarUsuario(usuario: Usuario){
+    console.log("en servicio",usuario)
+    return this.http.post<string>(`${this.URL}modificarUsuario.php`,  JSON.stringify(usuario));
+  }
+
+borrarUsuario(idUsuario:number){
+
+  const body = { idUsuario: idUsuario }; 
+  return this.http.post(`${this.URL}borrarUsuario.php`,  JSON.stringify(body));
+
+}
 
 }

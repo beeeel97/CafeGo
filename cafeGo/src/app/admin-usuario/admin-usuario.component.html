@@ -1,0 +1,74 @@
+<app-menu-navegacion></app-menu-navegacion>
+
+<div class="container table-responsive">
+  <div class="container p-5 my-3 text-white text-center flex-row">
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn mx-2" style="background-color: #F6951B" [routerLink]="['/adminCrearUsuario']">
+        Crear nuevo usuario
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn mx-2" style="background-color: #F6951B" [routerLink]="['/adminUsuario']">
+        Ver usuarios
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn mx-2" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Contraseña</th>
+          <th> </th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index" (click)= verUsuario(usuario.IDUsuario)>
+          <td >
+            {{ usuario.IDUsuario }}
+          </td>
+          <td>
+            {{ usuario.NombreUsuario }}
+          </td>
+          <td>
+            {{ usuario.CorreoUsuario }}
+          </td>
+          <td>
+            {{ usuario.PassUsuario }}
+          </td>
+          <td>
+            <button type="button" name="button" class="btn btn-warning" (click)= verUsuario(usuario.IDUsuario)>Editar</button>
+          </td>
+          <td>
+            <button type="button" name="button" class="btn btn-danger" (click)=borrarUsuario(usuario.IDUsuario)>Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
+      <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>

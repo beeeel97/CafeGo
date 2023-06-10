@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CarritoService } from '../services/carrito.service';
+import { LocalStorageService } from '../services/local-storage.service';
+import { UsuarioService } from '../services/servicio-usuario.service';
+import { Usuario } from '../models/Usuario';
 
 @Component({
   selector: 'app-menu-navegacion',
@@ -10,19 +13,21 @@ import { CarritoService } from '../services/carrito.service';
 export class MenuNavegacionComponent {
 
 
-  constructor(private router:Router, private route:ActivatedRoute, private serviceCarrito: CarritoService) {
-    
+  constructor(private router:Router, private route:ActivatedRoute,private serviceUsuario:UsuarioService, private serviceCarrito: CarritoService, private localStorageService: LocalStorageService) {
+   console.log("dddd",this.IDUsuario)
+   this.mostrarUsuario();
    }
 
-   //IDUsuario habria que recogerlo del local storage, demomento pongo uno a pincho
 
-   IDUsuario:number =1
+   IDUsuario:number =this.localStorageService.getItem("usuario");
+   usuario: Usuario | undefined;
+   nombreUsuario!:string;
 
-  categoriaNavegacion: string ="";
+   categoriaNavegacion: string ="";
 
     navegarMenuCategoria(evento: Event){
   
-      //recuperar la palabra snack
+      //recuperar la palabra de la categoria
       this.obtenerValorButton(evento);
       this.navegarProductos();
   
@@ -42,14 +47,18 @@ export class MenuNavegacionComponent {
         };
     
        console.log(navigationExtras);
+
+       this.router.navigate(['/productos'], navigationExtras);
       
-       const url = `/productos?categoria=${this.categoriaNavegacion}&usuario=${this.IDUsuario}`;
-       this.router.navigateByUrl(url);
+      //  const url = `/productos?categoria=${this.categoriaNavegacion}&usuario=${this.IDUsuario}`;
+      //  this.router.navigateByUrl(url);
 
        
       }
 
       navegarHome(){}
+
+
 
       //CARRITO
 
@@ -60,10 +69,37 @@ export class MenuNavegacionComponent {
     //para que se muestre o no el carrito
     viewCart: boolean = false;
 
-    //myCart$ = this.storeService.myCart$;
-
     onToggleCart() {
     this.viewCart = !this.viewCart
     };
+
+    //CERRARSESION
+
+    cerrarSesion(){
+
+      this.serviceCarrito.deleteListaProductos();
+      this.localStorageService.removeItem("usuario");
+      this.localStorageService.removeItem("carrito");
+      this.router.navigate(['/login']);
+
+    }
+
+    mostrarUsuario() {
+      this.serviceUsuario.getUsuarios().subscribe((data: any) => {
+        const dataArray = Object.values(data);
+  
+        this.usuario = dataArray
+          .map((objeto: any) => new Usuario(
+            Number(objeto.IDUsuario),
+            objeto.NombreUsuario,
+            objeto.CorreoUsuario,
+            objeto.PassUsuario
+          ))
+          .find((usuario: Usuario) => usuario.IDUsuario === Number(this.IDUsuario));
+
+          this.nombreUsuario = this.usuario?.NombreUsuario ?? '';
+
+      });
+    }
 
 }

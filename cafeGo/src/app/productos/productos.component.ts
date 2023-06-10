@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ServiceProducto } from '../services/servicio-producto.service';
 import { Producto } from '../models/Producto';
 import { CarritoService } from '../services/carrito.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-productos',
@@ -31,7 +32,7 @@ export class ProductosComponent implements OnInit {
    @Input()
   propiedadRecibida!: string;
 
-  constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto, private serviceCarrito: CarritoService) { }
+  constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto, private serviceCarrito: CarritoService, private localStorage: LocalStorageService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -41,6 +42,7 @@ export class ProductosComponent implements OnInit {
       console.log("aquí", this.categoria);
       this.obtenerProductoByCategoria();
     });
+
   }
 
   obtenerProductoByCategoria() {
@@ -61,11 +63,11 @@ export class ProductosComponent implements OnInit {
         Number(objeto.UnidadProducto),
         Number(objeto.PrecioProducto),
         objeto.DescripcionProducto,
-       // objeto.urlImagen
+       objeto.LinkImagen,
        0 //cantidad que el usuario luego añada al carrito
       ));
 
-      //LLAMAR AL JSON CON EL ID DEL OBJETO Y RECUPERAR LA RUTA A LA IMAGEN
+  
 
       this.productosFiltrados = this.productos;
       console.log(this.productos);
@@ -109,7 +111,9 @@ export class ProductosComponent implements OnInit {
   anadirProductoCarrito(producto: Producto){
 
     this.serviceCarrito.añadirProducto(producto);
-    
+    //guardar en el localStorage
+    this.localStorage.actualizarLocalStorage(producto, "añadir");
+
   }
 
 

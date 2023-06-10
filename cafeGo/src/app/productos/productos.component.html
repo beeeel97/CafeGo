@@ -42,7 +42,7 @@
     <!-- <div class="card-deck d-flex justify-content-center mt-3 flex-wrap"> -->
         <div class="card-deck flex-productos">
             <div class="card mx-3 card-size" *ngFor="let producto of productosFiltrados | buscador:filterProductos">
-                <img class="card-img-top mx-auto" id="producto" src="./images/productos/fantaNaranja.jpg">
+                <img class="card-img-top mx-auto" id="producto" src="{{producto.LinkImagen}}">
                 <div class="card-body text-center" style="height: 150px;">
                     <h4 class="card-title font-weight-bold h5">{{producto.NombreProducto}}</h4>
                     <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
@@ -61,6 +61,18 @@
         <button class="btn bg-orange">Ver más productos</button>
     </div> -->
     </main>
+        <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>
 </body>
 
 </html>
