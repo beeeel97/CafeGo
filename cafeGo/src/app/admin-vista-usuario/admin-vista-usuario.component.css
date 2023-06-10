@@ -44,3 +44,17 @@ body {
     left: 0;
     right: 0;
 }
+
+.flex-botones{
+    display: flex;
+    flex-direction: row;
+}
+
+.boton{
+    margin-right: 15px;
+    background-color: #F6951B;
+}
+
+.feedback{
+    margin-top: 15px;
+}

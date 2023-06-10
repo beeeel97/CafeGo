@@ -12,6 +12,8 @@ import { UsuarioService } from '../services/servicio-usuario.service';
 export class AdminVistaUsuarioComponent {
 
   usuario: Usuario | undefined=undefined;
+  passwordIgual!:boolean;
+  feedback!:string;
 
   //objeto con los atributos que son los campos del formulario
   modificarForm = {
@@ -36,11 +38,28 @@ export class AdminVistaUsuarioComponent {
 
 
   getUsuario() {
+    let usuarioID:number = 0;
     this.route.queryParams.subscribe(params => {
-      this.usuario = JSON.parse(params['usuario']);
+      usuarioID = JSON.parse(params['usuario']).IDUsuario;
+
+      //recuperamos el usuario
+
+      this.serviceUsuario.getUsuarios().subscribe((data: any) => {
+        const dataArray = Object.values(data);
+  
+        this.usuario = dataArray
+          .map((objeto: any) => new Usuario(
+            Number(objeto.IDUsuario),
+            objeto.NombreUsuario,
+            objeto.CorreoUsuario,
+            objeto.PassUsuario
+          ))
+          .find((usuario: Usuario) => usuario.IDUsuario === Number(usuarioID));
+      });
+  
     });
 
-   
+
   }
 
   modificarDatos(form: NgForm, idUsuario:number ) {
@@ -48,6 +67,7 @@ export class AdminVistaUsuarioComponent {
 
     let email = form.value.email;
     if (email == undefined){
+      console.log("entra");
       email = this.usuario?.CorreoUsuario
     }
     let nombre = form.value.nombre;
@@ -84,7 +104,10 @@ export class AdminVistaUsuarioComponent {
           PassUsuario: password
         };
       }
-    } 
+    } else{
+      this.passwordIgual=false;
+      this.feedback = "Las contraseñas no coinciden"
+    }
 
     this.modificarUsuario();
 
@@ -95,6 +118,7 @@ export class AdminVistaUsuarioComponent {
 
       this.respuestaBBDD = data as string;
       if(data=="true"){
+        this.passwordIgual=true;
       this.feedbackInsercion = "Usuario modificado correctamente"
 
     }else{

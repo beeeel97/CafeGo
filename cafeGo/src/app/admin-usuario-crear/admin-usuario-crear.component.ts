@@ -27,7 +27,7 @@ registroForm={
 
 registrarse(form:NgForm){
 
-  //Comprobar que las dos contraseñas introducidas son iguales. TODO
+
 
   const email=form.value.email;
   const password=form.value.password;

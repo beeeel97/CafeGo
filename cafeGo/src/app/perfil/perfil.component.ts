@@ -12,6 +12,9 @@ import { NgForm } from '@angular/forms';
 export class PerfilComponent {
 
   usuario: Usuario | undefined;
+  passwordIgual!:boolean;
+  feedback!:string;
+
 
   //objeto con los atributos que son los campos del formulario
   modificarForm = {
@@ -23,9 +26,7 @@ export class PerfilComponent {
   }
 
   //Usuario para guardar en la BBDD
-
-  usuarioBBDD!: Usuario;
-  respuestaBBDD!: boolean;
+  respuestaBBDD!: string;
   feedbackInsercion:String ="";
 
 
@@ -51,40 +52,67 @@ export class PerfilComponent {
 
   modificarDatos(form: NgForm) {
 
-    const email = form.value.email;
-    const nombre = form.value.nombre;
-    const apellido = form.value.apellido;
-    const password = form.value.password;
-    const passwordRepeat = form.value.passwordRepeat;
+    console.log(this.usuario)
+
+    let nombre = form.value.nombre;
+    if (nombre == "") {
+      console.log("nombre");
+      nombre = this.usuario?.NombreUsuario
+    }
+
+    let email = form.value.email;
+    if (email == "") {
+      email = this.usuario?.CorreoUsuario
+    }
+
+    let password = form.value.password;
+    if (password == "") {
+      password = this.usuario?.PassUsuario
+    }
+
+    let passwordRepeat = form.value.passwordRepeat;
+    if (passwordRepeat == "") {
+      passwordRepeat = this.usuario?.PassUsuario
+    }
 
     //comporbar que ambas contraseñas sea iguales
 
     if (password == passwordRepeat) {
-      this.usuarioBBDD.NombreUsuario = nombre;
-      this.usuarioBBDD.CorreoUsuario = email;
-      this.usuarioBBDD.PassUsuario = password;
-    }else{
-      //poner alguna varible para dar feedback al usuario
-    }
 
-    //llamar al servicio para insertar en la base de datos
+      const storedUsuario = this.localStorage.getItem("usuario");
 
-    this.modificarUsuario();
+      let usuario = new Usuario(storedUsuario, nombre, email, password);
 
-
-  }
-
-  modificarUsuario(){
-    this.serviceUsuario.modificarUsuario(this.usuarioBBDD).subscribe(data=> data=this.respuestaBBDD)
-
-    if(this.respuestaBBDD==true){
-      this.feedbackInsercion = "Usuario modificado correctamente"
-
-    }else{
-      this.feedbackInsercion = "El usuario no ha podido modificarse"
-    }
-  }
-
+      console.log("ususario en el modificarDtos",usuario);
   
+      this.modificarUsuario(usuario);
+     // this.router.navigate(['/adminUsuario']);
+      }else{
+        this.passwordIgual=false;
+        this.feedback = "Las contraseñas no coinciden"
+    
+      }
+  }
+
+  modificarUsuario(usuario:Usuario){
+
+    this.serviceUsuario.modificarUsuario(usuario).subscribe(data => {
+
+      this.respuestaBBDD = data
+      console.log("true o false",this.respuestaBBDD)
+
+      if(this.respuestaBBDD=="true"){
+        this.passwordIgual=true;
+        this.feedbackInsercion = "Usuario modificado correctamente"
+  
+      }else{
+        this.feedbackInsercion = "El usuario no ha podido modificarse"
+      }
+      
+    })
+  
+
+
+  }
 
 }
