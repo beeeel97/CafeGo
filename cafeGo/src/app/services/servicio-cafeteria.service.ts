@@ -24,6 +24,17 @@ export class ServicioCafeteriaService {
 
   }
 
+  borrarCafeteria(idCafeteria:number){
+
+    const body = { idProducto: idCafeteria }; 
+    return this.http.post(`${this.URL}borrarCafeteria.php`,  JSON.stringify(body));
+  
+  }
+  
+  modificarCafeteria(cafeteria: Cafeteria){
+    console.log("en servicio",cafeteria)
+    return this.http.post(`${this.URL}modificarCafeteria.php`,  JSON.stringify(cafeteria));
+  }
 
 
 }

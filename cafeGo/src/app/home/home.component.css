@@ -41,8 +41,8 @@ body,
 }
 
 .circulo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background-color: #F6951B;
     display: flex;
@@ -50,8 +50,8 @@ body,
     align-items: center;
     margin-top: 50px;
     transition: all 0.3s ease-out;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 .circulo:hover {
