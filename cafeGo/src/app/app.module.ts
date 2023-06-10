@@ -29,7 +29,7 @@ import { AdminCrearProductoComponent } from './admin-crear-producto/admin-crear-
 import { AdminVistaProductoComponent } from './admin-vista-producto/admin-vista-producto.component';
 import { FooterComponent } from './footer/footer.component';
 import { PasarelaPagoComponent } from './pasarela-pago/pasarela-pago.component';
-import { PerfilComponent } from './perfil/perfil.component';
+// import { PerfilComponent } from './perfil/perfil.component';
 
 
 
