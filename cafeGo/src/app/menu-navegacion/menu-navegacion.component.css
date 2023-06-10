@@ -121,7 +121,19 @@
     
 }
 
+.btn-usuario{
+  margin-right: 10px;
+  vertical-align: middle;
+}
 
+.boton-cerrar{
+  width:135px;
+  height: 45px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: white;
+
+}
 .navbar-cart-items{
     position: absolute;
         left: 52px;
