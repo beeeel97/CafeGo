@@ -5,9 +5,6 @@ header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
 header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization');
 header("Content-Type: application/json");
 
-
-
-  
   require("conexion.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
   $conexion = conexion(); // CREA LA CONEXION
@@ -21,21 +18,6 @@ header("Content-Type: application/json");
   }else{
       $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
   }
-
-  // if($params->categoria=="TodosProductos"){
-  //   // $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = '".$params->categoria."')");
-
-  //   $registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = 'Snack')");
-  // }else{
-
-  //   $registros = mysqli_query($conexion, "SELECT * FROM productos")
-     
-  // }
-
-
-
-//$registros = mysqli_query($conexion, "SELECT * FROM productos WHERE categoria = (SELECT IDCategoria FROM categorias WHERE NombreCategoria = 'Bebida fria')");
-
   
   $numRegistros=mysqli_num_rows($registros);
 
@@ -50,8 +32,6 @@ for ($i=0; $i <  $numRegistros; $i++) {
 
   $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
 
+  echo $json; 
 
-  echo $json; // MUESTRA EL JSON GENERADO
-  
- // header('Content-Type: application/json');
 ?>

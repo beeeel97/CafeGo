@@ -27,10 +27,10 @@ export class ProductosComponent implements OnInit {
    //Filtro del select
    filtrosSeleccionado="";
 
-   //buscador en otro componente
+  //  //buscador en otro componente
 
-   @Input()
-  propiedadRecibida!: string;
+  //  @Input()
+  // propiedadRecibida!: string;
 
   constructor(private route: ActivatedRoute, private serviceProducto: ServiceProducto, private serviceCarrito: CarritoService, private localStorage: LocalStorageService) { }
 
@@ -41,6 +41,8 @@ export class ProductosComponent implements OnInit {
 
       console.log("aquí", this.categoria);
       this.obtenerProductoByCategoria();
+
+ 
     });
 
   }

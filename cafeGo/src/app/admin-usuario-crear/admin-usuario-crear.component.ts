@@ -41,9 +41,7 @@ registrarse(form:NgForm){
   this.router.navigate(['/adminUsuario']);
   }else{
     this.passwordIgual=false;
-
     this.feedback = "Las contraseñas no coinciden"
-
   }
 
 }
@@ -51,14 +49,8 @@ registrarse(form:NgForm){
 registrarUsuario(usuario:Usuario) {
   console.log(usuario)
   this.usuariosServicio.registrarUsuario(usuario).subscribe(data =>{
-  
     this.registroExitoso = data;
-
   } )
 }
-
-
-
-
 
 }
