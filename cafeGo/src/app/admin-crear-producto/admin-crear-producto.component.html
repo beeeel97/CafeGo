@@ -1,4 +1,23 @@
 <app-menu-navegacion></app-menu-navegacion>
+<div class="container table-responsive">
+  <div class="container p-5 my-3 text-white text-center flex-row">
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminCrearProducto']">
+        Crear nuevo producto
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/adminProducto']">
+        Ver productos
+      </button>
+    </div>
+    <div style="display: inline-block;">
+      <button type="button" id="texto" class="btn" style="background-color: #F6951B" [routerLink]="['/administrador/:IDUsuario']">
+        Volver
+      </button>
+    </div>
+  </div>
+
 <div class="container">
   <div class="row">
 
@@ -150,7 +169,7 @@
           </div>
 
           <!-- DIV BOTON GUARDAR el producto -->
-          <button (click)="registrar(Formulario)" class="btn" style="background-color: #F6951B">
+          <button (click)="registrar(Formulario)" class="btn btn-guardar" style="background-color: #F6951B">
             Crear cuenta
           </button>
 
@@ -159,3 +178,16 @@
       </div>
     </div>
   </div>
+
+        <!-- 
+************************************************
+    FOOTER 
+************************************************
+
+ -->
+
+ <footer class="footer">
+    <div class="container text-center">
+      <p>CafeGo - Disfruta de tu tiempo.</p>
+    </div>
+  </footer>

@@ -13,38 +13,38 @@ import { NgForm } from '@angular/forms';
 export class AdminCafeteriaCrearComponent {
 
   constructor(private router:Router, private serviceCafeteria: ServicioCafeteriaService){
+  }
 
-    // registroExitoso:boolean = true; //true o false si se ha podidio o no insertar el usuario
+    registroExitoso:boolean = true; //true o false si se ha podidio o no insertar el usuario
 
-    // //objeto con los atributos que son los campos del formulario. bananinbox/mgmodel
-    // registroForm={
-    //   nombre:"",
-    //   propietario:"",
-    //   direccion:""
-    // }
+    //objeto con los atributos que son los campos del formulario. bananinbox/mgmodel
+    registroForm={
+      nombre:"",
+      propietario:"",
+      direccion:""
+    }
     
-    // registrarse(form:NgForm){
+    registrarse(form:NgForm){
     
-    //   //Comprobar que las dos contraseñas introducidas son iguales. TODO
+      //Comprobar que las dos contraseñas introducidas son iguales. TODO
     
-    //   const nombre=form.value.nombre;
-    //   const propietario=form.value.propietario;
-    //   const direccion=form.value.direccion;
+      const nombre=form.value.nombre;
+      const propietario=form.value.propietario;
+      const direccion=form.value.direccion;
     
-    //   // Crear un nuevo objeto de tipo Usuario
-    //   let cafeteria = new Cafeteria(0, nombre, propietario, direccion);
+      // Crear un nuevo objeto de tipo Usuario
+      let cafeteria = new Cafeteria(0, nombre, propietario, direccion);
     
-    //   this.registrarCafeteria(cafeteria);
-    // }
+      this.registrarCafeteria(cafeteria);
+    }
     
-    // registrarCafeteria(cafeteria:Cafeteria) {
-    //   this.cafeteriasServicio.registrarCafeteria(cafeteria).subscribe(data =>{
-    //     this.registroExitoso = data;
-    //     console.log("que me sacass", this.registroExitoso); //true o false (mensaje de feedback al usuario si no ha podidio registrarse)
-    //   } )
-    // }
+    registrarCafeteria(cafeteria:Cafeteria) {
+      this.serviceCafeteria.registrarCafeteria(cafeteria).subscribe(data =>{
+        this.registroExitoso = data;
+        console.log("que me sacass", this.registroExitoso); //true o false (mensaje de feedback al usuario si no ha podidio registrarse)
+      } )
+    }
     
      }
 
 
-}
