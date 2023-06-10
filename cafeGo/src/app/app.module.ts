@@ -29,6 +29,10 @@ import { AdminCrearProductoComponent } from './admin-crear-producto/admin-crear-
 import { AdminVistaProductoComponent } from './admin-vista-producto/admin-vista-producto.component';
 import { FooterComponent } from './footer/footer.component';
 import { PasarelaPagoComponent } from './pasarela-pago/pasarela-pago.component';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4152d4f09a0116da8de15790f4e75405c03a44c7
 
 
 
