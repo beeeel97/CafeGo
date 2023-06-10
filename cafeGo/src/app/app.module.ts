@@ -81,6 +81,7 @@ const appRoutes:Routes=[
     FooterComponent,
     PasarelaPagoComponent,
     PerfilComponent,
+
   ],
   imports: [
     BrowserModule,
