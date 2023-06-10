@@ -76,7 +76,7 @@ export class LoginComponent {
 
     console.log("id usuario",this.usuarios[0]);
 
-    if (this.usuarios[0].IDUsuario == 5) {
+    if (this.usuarios[0].IDUsuario == 1) {
       this.router.navigate(['/administrador', this.usuarios[0].IDUsuario]);
     } else {
       console.log("id usuario............",this.usuarios[0].IDUsuario);
