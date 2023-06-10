@@ -29,6 +29,8 @@ import { AdminCrearProductoComponent } from './admin-crear-producto/admin-crear-
 import { AdminVistaProductoComponent } from './admin-vista-producto/admin-vista-producto.component';
 import { FooterComponent } from './footer/footer.component';
 import { PasarelaPagoComponent } from './pasarela-pago/pasarela-pago.component';
+import { PerfilComponent } from './perfil/perfil.component';
+
 
 
 
@@ -65,6 +67,7 @@ const appRoutes:Routes=[
     BuscadorComponent,
     BuscadorPipe,
     CarritoComponent,
+
     PedidoComponent,
     AdministradorComponent,
     AdminUsuarioComponent,
@@ -78,6 +81,7 @@ const appRoutes:Routes=[
     AdminVistaProductoComponent,
     FooterComponent,
     PasarelaPagoComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

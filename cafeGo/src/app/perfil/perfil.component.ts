@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+
 import { UsuarioService } from '../services/servicio-usuario.service';
 import { LocalStorageService } from '../services/local-storage.service';
 import { Usuario } from '../models/Usuario';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-perfil',
@@ -10,6 +12,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+
 
   usuario: Usuario | undefined;
   passwordIgual!:boolean;
