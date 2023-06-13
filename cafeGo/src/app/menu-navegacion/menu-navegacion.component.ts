@@ -56,7 +56,12 @@ export class MenuNavegacionComponent {
        
       }
 
-      navegarHome(){}
+      navegarHome(){
+
+      let IDUsuario=  this.localStorageService.getItem("usuario");
+
+      this.router.navigate([`/home/${IDUsuario}`]);
+      }
 
 
 

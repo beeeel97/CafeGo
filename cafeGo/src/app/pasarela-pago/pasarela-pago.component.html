@@ -1,60 +1,59 @@
 <app-menu-navegacion></app-menu-navegacion>
 <div class="row">
-    <div class="col-lg-4 col-md-3 col-sm-12"></div>
-    <!-- FORMULARIO PARA DATOS -->
-    <form class="was-validated form col-lg-4 col-md-6 col-sm-12 bg-white" action="">
-      <h2 class="titulo">Realizar Pago</h2>
-      <div class="mb-3 mt-3">
-        <!-- NÚMERO DE TARJETA DE CRÉDITO -->
-        <!-- NÚMERO DE TARJETA DE CRÉDITO -->
-<div class="form-group">
-  <label for="tarjeta" class="form-label">Número de tarjeta de crédito</label>
-  <input type="text" class="form-control" id="tarjeta" placeholder="Introduzca número de tarjeta de crédito" required
-    pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$"
-    (input)="validarTarjeta()"
-  />
-  <div class="invalid-feedback">
-    Introduzca un número de tarjeta de crédito válido.
-  </div>
-  <div class="valid-feedback">
-    <span *ngIf="mensajeCorrectoTarjeta">{{ mensajeCorrectoTarjeta }}</span>
-  </div>
-</div>
-
-<!-- FECHA DE VENCIMIENTO -->
-<div class="form-group">
-  <label for="fecha" class="form-label">Fecha de vencimiento</label>
-  <input type="text" class="form-control" id="fecha" placeholder="MM/AA" required
-    pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
-    (input)="validarFecha()"
-  />
-  <div class="invalid-feedback">
-    Introduzca una fecha de vencimiento válida en el formato MM/AA.
-  </div>
-  <div class="valid-feedback">
-    <span *ngIf="mensajeCorrectoFecha">{{ mensajeCorrectoFecha }}</span>
-  </div>
-</div>
-
-<!-- CVV DE LA TARJETA -->
-<div class="form-group">
-  <label for="cvv" class="form-label">CVV de la tarjeta</label>
-  <input type="text" class="form-control" id="cvv" placeholder="Introduzca CVV de la tarjeta" required
-    pattern="^\d{3,4}$"
-    (input)="validarCVV()"
-  />
-  <div class="invalid-feedback">
-    Introduzca un CVV de la tarjeta válido.
-  </div>
-  <div class="valid-feedback">
-    <span *ngIf="mensajeCorrectoCVV">{{ mensajeCorrectoCVV }}</span>
-  </div>
-</div>
-  
-        <button type="submit" class="btn" style="background-color: #F6951B">
-          Pagar
-        </button>
+  <div class="col-lg-4 col-md-3 col-sm-12"></div>
+  <!-- FORMULARIO PARA DATOS -->
+  <form class="was-validated form col-lg-4 col-md-6 col-sm-12 bg-white" action="">
+    <h2 class="titulo">Realizar Pago</h2>
+    <div class="mb-3 mt-3">
+      <!-- NÚMERO DE TARJETA DE CRÉDITO -->
+      <!-- NÚMERO DE TARJETA DE CRÉDITO -->
+      <div class="form-group">
+        <label for="tarjeta" class="form-label">Número de tarjeta de crédito</label>
+        <input type="text" class="form-control" id="tarjeta" placeholder="Introduzca número de tarjeta de crédito"
+          required
+          pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$"
+          (input)="validarTarjeta()" />
+        <div class="invalid-feedback">
+          Introduzca un número de tarjeta de crédito válido.
+        </div>
+        <div class="valid-feedback">
+          <span *ngIf="mensajeCorrectoTarjeta">{{ mensajeCorrectoTarjeta }}</span>
+        </div>
       </div>
-    </form>
+
+      <!-- FECHA DE VENCIMIENTO -->
+      <div class="form-group">
+        <label for="fecha" class="form-label">Fecha de vencimiento</label>
+        <input type="text" class="form-control" id="fecha" placeholder="MM/AA" required
+          pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" (input)="validarFecha()" />
+        <div class="invalid-feedback">
+          Introduzca una fecha de vencimiento válida en el formato MM/AA.
+        </div>
+        <div class="valid-feedback">
+          <span *ngIf="mensajeCorrectoFecha">{{ mensajeCorrectoFecha }}</span>
+        </div>
+      </div>
+
+      <!-- CVV DE LA TARJETA -->
+      <div class="form-group">
+        <label for="cvv" class="form-label">CVV de la tarjeta</label>
+        <input type="text" class="form-control" id="cvv" placeholder="Introduzca CVV de la tarjeta" required
+          pattern="^\d{3,4}$" (input)="validarCVV()" />
+        <div class="invalid-feedback">
+          Introduzca un CVV de la tarjeta válido.
+        </div>
+        <div class="valid-feedback">
+          <span *ngIf="mensajeCorrectoCVV">{{ mensajeCorrectoCVV }}</span>
+        </div>
+      </div>
+
+      <button class="text-center" type="submit" class="btn" style="background-color: #F6951B" (click)="pagar()">
+        Pagar
+      </button>
+    </div>
+  </form>
+
+  <div class="text-center">
+    <span *ngIf="pagoOK">{{ mensajePagoExitoso }}</span>
   </div>
-  
+</div>
