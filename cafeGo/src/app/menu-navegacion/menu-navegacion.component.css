@@ -159,3 +159,10 @@ padding: 1rem;
   min-width: 40%;
 
 }
+
+.navegacion{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

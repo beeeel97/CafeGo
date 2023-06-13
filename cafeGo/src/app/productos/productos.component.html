@@ -1,52 +1,36 @@
-
-    <app-menu-navegacion></app-menu-navegacion>
-
+<app-menu-navegacion></app-menu-navegacion>
 
 
-   <div class="search-container">
-        <form class="input-group">
-            <input type="text" class="form-control  border border-warning " placeholder="Buscar..." [(ngModel)]="filterProductos" name="filterProductos">
-        </form>
-    </div>
 
-    <form class="filtro">
-        <div class="form-group">
-          <label for="orden-selector">Ordenar por:</label>
-          <select name="filtro" [(ngModel)]="filtrosSeleccionado" class="form-control" id="orden-selector" (ngModelChange)="filtroProductos()">
+<div class="search-container">
+    <form class="input-group">
+        <input type="text" class="form-control  border border-warning " placeholder="Buscar..."
+            [(ngModel)]="filterProductos" name="filterProductos">
+    </form>
+</div>
+
+<form class="filtro">
+    <div class="form-group">
+        <label for="orden-selector">Ordenar por:</label>
+        <select name="filtro" [(ngModel)]="filtrosSeleccionado" class="form-control" id="orden-selector"
+            (ngModelChange)="filtroProductos()">
             <option [value]="'alfabetico'">A-Z</option>
             <option [value]="'alfabeticoinverso'">Z-A</option>
             <option [value]="'preciomas'">Precio mayor a menor</option>
             <option [value]="'preciomenos'">Precio menor a mayor</option>
-          </select>
-        </div>
-      </form>
-      
-
-    <!-- <form class="filtro">
-        
-        <div class="form-group">
-            <label for="orden-selector">Ordenar por:</label>
-            <select name ="filtro" [(ngModel)]="filtrosSeleccionado" class="form-control" id="orden-selector" >
-                <option [value]="'alfabetico'">A-Z</option>
-                <option [value]="'alfabeticoinverso'">Z-A</option>
-                <option [value]="'preciomas'">Precio mayor a menor</option>
-                <option [value]="'preciomenos'">Precio menor a mayor</option>
-            </select>
-        </div>
-        <button type="submit" class="btn bg-orange mt-2 mb-2 mr-4" (click)="filtroProductos()" >Filtrar</button>
-    </form> -->
-    <h1 class="text-center border-top border-bottom py-3">Productos</h1>
-        <div class="card-deck flex-productos">
-            <div class="card mx-3 card-size" *ngFor="let producto of productosFiltrados | buscador:filterProductos">
-                <img class="card-img-top mx-auto" id="producto" src="{{producto.LinkImagen}}">
-                <div class="card-body text-center" style="height: 150px;">
-                    <h4 class="card-title font-weight-bold h5">{{producto.NombreProducto}}</h4>
-                    <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
-                    <button class="btn bg-orange" (click)="anadirProductoCarrito(producto)">Añadir</button>
-                </div>
-            </div>
-        </div>
-        
+        </select>
+    </div>
+</form>
 
 
-   
+<h1 class="text-center border-top border-bottom py-3">Productos</h1>
+<div class="card-deck flex-productos">
+    <div class="card mx-3 card-size" *ngFor="let producto of productosFiltrados | buscador:filterProductos">
+        <img class="card-img-top mx-auto" id="producto" src="{{producto.LinkImagen}}">
+        <div class="card-body text-center" style="height: 150px;">
+            <h4 class="card-title font-weight-bold h5">{{producto.NombreProducto}}</h4>
+            <p class="card-text h6">{{producto.PrecioProducto}} euros</p>
+            <button class="btn bg-orange" (click)="anadirProductoCarrito(producto)">Añadir</button>
+        </div>
+    </div>
+</div>

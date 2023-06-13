@@ -83,9 +83,10 @@ pagoOK:boolean=false;
     this.pagoOK=true;
    this.mensajePagoExitoso="Pago realizado correctamente";
 
-   this.navegarHome();
-
-  }
+   setTimeout(() => {
+    this.navegarHome();
+  }, 3000); // 3000 milisegundos = 3 segundos
+}
 
   navegarHome(){
 
