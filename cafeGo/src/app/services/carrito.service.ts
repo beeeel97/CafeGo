@@ -93,8 +93,10 @@ export class CarritoService {
 
 
   totalCart() {
+
     const total = this.listaProductos.reduce(function (acc, product) { return acc + (product.cantidad * product.PrecioProducto); }, 0)
-    return total
+
+    return total;
   }
 
   getListaProductos(){

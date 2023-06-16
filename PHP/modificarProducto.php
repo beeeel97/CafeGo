@@ -16,10 +16,6 @@ header("Content-Type: application/json");
 
   $actualizacion = mysqli_query($conexion, "UPDATE productos SET NombreProducto = '" . $params->NombreProducto . "', Categoria = '" . $params->Categoria . "', Frio = " . $params->Frio . ", UnidadProducto = '" . $params->UnidadProducto . "', PrecioProducto = " . $params->PrecioProducto . ", DescripcionProducto = '" . $params->DescripcionProducto . "', LinkImagen = '" . $params->LinkImagen . "' WHERE IDProducto = " . $params->IDProducto);
 
-
-
-
-  
 // VALIDA SI LA INSERCIÓN FUE EXITOSA
 if ($actualizacion) {
     $actualizacionFeedback="true";

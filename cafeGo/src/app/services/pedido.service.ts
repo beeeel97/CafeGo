@@ -14,7 +14,7 @@ export class PedidoService {
   insertarPedido(idUsuario:number, idCafeteria:number, fecha:string){
   //devuleva el numero de pedido y luego se lo insertemos por parametrp a insertar detalle de peido
 
-  const body = { IDUsuarioPedido: idUsuario, IDCafeteriaPedido: idCafeteria, FechaPedido: idCafeteria }; 
+  const body = { IDUsuarioPedido: idUsuario, IDCafeteriaPedido: idCafeteria, FechaPedido: fecha }; 
 
   return this.http.post(`${this.URL}insertarPedido.php `, JSON.stringify(body) );
 

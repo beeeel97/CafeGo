@@ -76,6 +76,8 @@ export class PedidoComponent {
     const fechaActual = new Date();
     const fecha = fechaActual.toISOString().split('T')[0];
 
+    console.log(fecha)
+
     const idUsuario = this.localStorageService.getItem("usuario");
     const idCafeteria = 1;
 
